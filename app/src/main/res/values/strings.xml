@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">0013.MathCalculator</string>
+    <string name="title_activity_home_page_calculator">HomePageCalculator</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="calculation">Calculation</string>
+    <string name="equation">Equation</string>
+    <string name="photo">Photo</string>
+    <string name="bmi">BMI</string>
+    <string name="elite_calculator">Elite Calculator</string>
+    <string name="setting">Setting</string>
+    <string name="more">More</string>
+    <string name="floating">Floating</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="sound">Sound</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="history">History</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="sin">sin</string>
+    <string name="pi">π</string>
+    <string name="square_root_of_3">∛</string>
+    <string name="square_root_of_2">√</string>
 </resources>

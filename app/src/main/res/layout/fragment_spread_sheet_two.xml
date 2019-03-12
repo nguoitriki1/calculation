@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:grid="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    app:ignore="NamespaceTypo">
+
+    <TextView
+        android:id="@+id/btn_atan"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="atan"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_exponential4"
+        grid:layout_constraintEnd_toEndOf="parent"
+        grid:layout_constraintStart_toEndOf="@+id/btn_acos"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_tan" />
+
+    <TextView
+        android:id="@+id/btn_pi"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="@string/pi"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_exponential1"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_asin"
+        grid:layout_constraintStart_toStartOf="parent"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_rad" />
+
+    <TextView
+        android:id="@+id/btn_rad"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="RAD"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_pi"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_sin"
+        grid:layout_constraintStart_toStartOf="parent"
+        grid:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btn_exponential1"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        android:paddingLeft="21dp"
+        android:paddingTop="16dp"
+        android:paddingStart="21dp"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_log"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_exponential2"
+        grid:layout_constraintStart_toStartOf="parent"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_pi" />
+
+    <TextView
+        android:id="@+id/btn_log"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="log"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_hide"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_lg"
+        grid:layout_constraintStart_toStartOf="parent"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_exponential1" />
+
+    <TextView
+        android:id="@+id/btn_hide"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="\u22BB"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toBottomOf="parent"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_square_root_of_2"
+        grid:layout_constraintStart_toStartOf="parent"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_log" />
+
+    <TextView
+        android:id="@+id/btn_square_root_of_2"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="@string/square_root_of_2"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toBottomOf="parent"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_square_root_of_3"
+        grid:layout_constraintStart_toEndOf="@+id/btn_hide"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_lg" />
+
+    <TextView
+        android:id="@+id/btn_square_root_of_3"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/square_root_of_3"
+        android:textSize="@dimen/size_text_grid"
+        android:textColor="@android:color/black"
+        grid:layout_constraintBottom_toBottomOf="parent"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_factorial_calculation"
+        grid:layout_constraintStart_toEndOf="@+id/btn_square_root_of_2"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_ln" />
+
+    <TextView
+        android:id="@+id/btn_lg"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="lg"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_square_root_of_2"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_ln"
+        grid:layout_constraintStart_toEndOf="@+id/btn_log"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_exponential2" />
+
+    <TextView
+        android:id="@+id/btn_ln"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="ln"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_square_root_of_3"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_e"
+        grid:layout_constraintStart_toEndOf="@+id/btn_lg"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_exponential3" />
+
+    <TextView
+        android:id="@+id/btn_exponential2"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        android:paddingLeft="21dp"
+        android:paddingTop="16dp"
+        android:paddingStart="21dp"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_lg"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_exponential3"
+        grid:layout_constraintStart_toEndOf="@+id/btn_exponential1"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_asin" />
+
+    <TextView
+        android:id="@+id/btn_exponential3"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:paddingLeft="21dp"
+        android:paddingTop="16dp"
+        android:paddingStart="21dp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_ln"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_exponential4"
+        grid:layout_constraintStart_toEndOf="@+id/btn_exponential2"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_acos" />
+
+    <TextView
+        android:id="@+id/btn_asin"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="asin"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_exponential2"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_acos"
+        grid:layout_constraintStart_toEndOf="@+id/btn_pi"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_sin" />
+
+    <TextView
+        android:id="@+id/btn_acos"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="acos"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_exponential3"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_atan"
+        grid:layout_constraintStart_toEndOf="@+id/btn_asin"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_cos" />
+
+    <TextView
+        android:id="@+id/btn_sin"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="@string/sin"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_asin"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_cos"
+        grid:layout_constraintStart_toEndOf="@+id/btn_rad"
+        grid:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btn_cos"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="cos"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_acos"
+        grid:layout_constraintEnd_toStartOf="@+id/btn_tan"
+        grid:layout_constraintStart_toEndOf="@+id/btn_sin"
+        grid:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btn_factorial_calculation"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="n!"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toBottomOf="parent"
+        grid:layout_constraintEnd_toEndOf="parent"
+        grid:layout_constraintStart_toEndOf="@+id/btn_square_root_of_3"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_e" />
+
+    <TextView
+        android:id="@+id/btn_e"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="e"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_factorial_calculation"
+        grid:layout_constraintEnd_toEndOf="parent"
+        grid:layout_constraintStart_toEndOf="@+id/btn_ln"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_exponential4" />
+
+    <TextView
+        android:id="@+id/btn_exponential4"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:paddingLeft="21dp"
+        android:paddingTop="16dp"
+        android:paddingStart="21dp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_e"
+        grid:layout_constraintEnd_toEndOf="parent"
+        grid:layout_constraintStart_toEndOf="@+id/btn_exponential3"
+        grid:layout_constraintTop_toBottomOf="@+id/btn_atan" />
+
+    <TextView
+        android:id="@+id/btn_tan"
+        android:layout_width="@dimen/size_button_grid"
+        android:layout_height="@dimen/size_button_grid"
+        android:background="@drawable/ripper_button_math"
+        android:gravity="center"
+        android:text="tan"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
+        grid:layout_constraintBottom_toTopOf="@+id/btn_atan"
+        grid:layout_constraintEnd_toEndOf="parent"
+        grid:layout_constraintStart_toEndOf="@+id/btn_cos"
+        grid:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
