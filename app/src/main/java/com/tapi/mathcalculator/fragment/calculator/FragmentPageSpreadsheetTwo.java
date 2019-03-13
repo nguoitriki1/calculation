@@ -155,40 +155,13 @@ public class FragmentPageSpreadsheetTwo extends Fragment implements View.OnClick
                 mVerticalViewPagerMain.setCurrentItem(0, true);
                 break;
             case R.id.btn_exponential1:
-                SpannableStringBuilder dataset = new SpannableStringBuilder(subStart + "-1");
-                dataset.setSpan(new SuperscriptSpan(), selectionEnd, selectionEnd+2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                dataset.setSpan(new RelativeSizeSpan(0.65f),selectionEnd, selectionEnd+2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                if (dataset.length() < length) {
-                    dataset.append(substringend);
-                    mEdtResultMain.setText(dataset);
-                } else {
-                    mEdtResultMain.setText(dataset);
-                }
-                mEdtResultMain.setSelection(selectionEnd+2);
+                appendTextInEdtResult("\u00AF\u00B9",2);
                 break;
             case R.id.btn_exponential2:
-                SpannableStringBuilder dataset2 = new SpannableStringBuilder(mEdtResultMain.getText().toString() + "2");
-                dataset2.setSpan(new SuperscriptSpan(), selectionEnd, selectionEnd+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                dataset2.setSpan(new RelativeSizeSpan(0.65f),selectionEnd, selectionEnd+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                if (subStart.length() < length) {
-                    ((Editable) subStart).append(substringend);
-                    mEdtResultMain.setText(subStart);
-                } else {
-                    mEdtResultMain.setText(subStart);
-                }
-                mEdtResultMain.setSelection(selectionEnd+1);
+              appendTextInEdtResult("\u00B2",1);
                 break;
             case R.id.btn_exponential3:
-                SpannableStringBuilder dataset3 = new SpannableStringBuilder(mEdtResultMain.getText().toString() + "3");
-                dataset3.setSpan(new SuperscriptSpan(), selectionEnd, selectionEnd+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                dataset3.setSpan(new RelativeSizeSpan(0.65f),selectionEnd, selectionEnd+1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                if (subStart.length() < length) {
-                    ((Editable) subStart).append(substringend);
-                    mEdtResultMain.setText(subStart);
-                } else {
-                    mEdtResultMain.setText(subStart);
-                }
-                mEdtResultMain.setSelection(selectionEnd+1);
+                appendTextInEdtResult("\u00B3",1);
                 break;
             case R.id.btn_exponential4:
                 appendTextInEdtResult("^",1);
@@ -197,7 +170,7 @@ public class FragmentPageSpreadsheetTwo extends Fragment implements View.OnClick
                 appendTextInEdtResult(getString(R.string.square_root_of_2),1);
                 break;
             case R.id.btn_square_root_of_3:
-                appendTextInEdtResult(getString(R.string.square_root_of_3),1);
+                appendTextInEdtResult("\u00B3"+getString(R.string.square_root_of_2),2);
                 break;
             case R.id.btn_factorial_calculation:
                 appendTextInEdtResult("!",1);

@@ -2,6 +2,7 @@ package com.tapi.mathcalculator;
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -95,16 +96,16 @@ public class HomePageCalculator extends AppCompatActivity implements View.OnClic
                 mDrawer.openDrawer(GravityCompat.START);
                 break;
             case R.id.layout_item_calculation:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
+                mViewPager.setCurrentItem(0);
                 break;
             case R.id.layout_item_equation:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
+                mViewPager.setCurrentItem(1);
                 break;
             case R.id.layout_item_photo:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
+                mViewPager.setCurrentItem(2);
                 break;
             case R.id.layout_item_bmi:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomePageCalculator.this,BmiActivity.class));
                 break;
             case R.id.layout_item_floating:
                 Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();

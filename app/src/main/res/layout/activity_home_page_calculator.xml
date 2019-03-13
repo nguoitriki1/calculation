@@ -106,7 +106,6 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -140,7 +139,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -152,7 +150,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/ic_equation" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -174,7 +172,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -186,7 +183,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/icon_photo" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -208,7 +205,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -220,7 +216,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/icon_bmi" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -257,7 +253,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -269,7 +264,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/icon_floating" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -291,7 +286,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -303,7 +297,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/icon_vibrate" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -325,7 +319,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -337,7 +330,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/icon_sound" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -359,7 +352,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -371,7 +363,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/ic_privacy_policy" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -392,7 +384,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -404,7 +395,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/icon_history" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -426,7 +417,6 @@
                     android:orientation="horizontal"
                     android:focusable="true"
                     android:clickable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -438,7 +428,7 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_calculator" />
+                        android:src="@drawable/icon_like" />
 
                     <TextView
                         android:layout_width="match_parent"

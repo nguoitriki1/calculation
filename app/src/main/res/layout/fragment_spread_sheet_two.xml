@@ -85,7 +85,7 @@
         android:layout_height="@dimen/size_button_grid"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
-        android:text="\u22BB"
+        android:text="\u2193"
         android:textColor="@android:color/black"
         android:textSize="@dimen/size_text_grid"
         grid:layout_constraintBottom_toBottomOf="parent"

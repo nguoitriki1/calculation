@@ -6,4 +6,6 @@
     <color name="colorlightGray">#F5F5F5</color>
     <color name="colorOrange">#FFB13D</color>
     <color name="colorOrangeDark">#D18D1D</color>
+    <color name="colorPink">#A8FF5F20</color>
+    <color name="colorTrasnGray">#41000000</color>
 </resources>
