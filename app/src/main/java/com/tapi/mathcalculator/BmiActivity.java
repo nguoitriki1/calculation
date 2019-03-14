@@ -4,13 +4,19 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.Build;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,10 +35,16 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
     private TextView mTxtSpinerHeightCm, mTxtSpinerHeightst, mTxtSpinerWeightKg, mTxtSpinerWeightLb, mTxtSpinerWeightSt, mBtnNumberZero, mBtnNumberOne, mBtnNumberTwo, mBtnNumberThree, mBtnNumberFour, mBtnNumberFive, mBtnNumberSix, mBtnNumberSevent, mBtnNumberEight, mBtnNumberNight, mBtnDot, mTxtMainSpinerHeight, mTxtMainSpinerWeight;
     private EditText mEdtSpinerHeightWithCm, mEdtSpinerHeightWithFt, mEdtSpinerHeightWithIn, mEdtSpinerWeightWithKg, mEdtSpinerWeightWithLb, mEdtSpinerWeightWithSt, mEdtSpinerWeightWithStLb;
     private EditText mEditTextForcus;
+    private Double mHeightResult,mWeightResult;
+    private TextView mTxtResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow();
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
         setContentView(R.layout.activity_bmi);
         mLayoutDropDownSpinerHeight = findViewById(R.id.layout_drop_spiner_height);
         mLayoutDropDownSpinerWeight = findViewById(R.id.layout_drop_spiner_weight);
@@ -67,6 +79,7 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
         mEdtSpinerWeightWithSt = findViewById(R.id.edt_spiner_weight_with_st);
         mEdtSpinerWeightWithStLb = findViewById(R.id.edt_spiner_weight_with_stlb);
         mImgQuestion = findViewById(R.id.bmi_img_question);
+        mTxtResult = findViewById(R.id.bmi_txt_result);
         setClickView();
         initView();
 
@@ -115,6 +128,162 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
     private void initView() {
         mEdtSpinerHeightWithCm.requestFocus();
         mEditTextForcus = mEdtSpinerHeightWithCm;
+
+        //onTextChange
+        mEdtSpinerHeightWithCm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculatorResultBmi();
+            }
+        });
+        mEdtSpinerHeightWithFt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculatorResultBmi();
+            }
+        });
+        mEdtSpinerHeightWithIn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculatorResultBmi();
+            }
+        });
+        mEdtSpinerWeightWithKg.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculatorResultBmi();
+            }
+        });
+        mEdtSpinerWeightWithLb.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculatorResultBmi();
+            }
+        });
+        mEdtSpinerWeightWithSt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculatorResultBmi();
+            }
+        });
+        mEdtSpinerWeightWithStLb.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                calculatorResultBmi();
+            }
+        });
+    }
+
+    private void calculatorResultBmi() {
+        try {
+            double resultHeight = getResultHeight();
+            double resultWeight = getResultWeight();
+            double totalResult = (resultWeight/Math.pow(resultHeight/100, 2));
+            if (String.valueOf(totalResult).length()>5){
+                String s = String.valueOf(totalResult).substring(0,5);
+                mTxtResult.setText(s);
+            }else {
+                mTxtResult.setText(totalResult+"");
+            }
+        }catch (Exception e){
+            if (mTxtResult != null)
+            mTxtResult.setText("");
+        }
+    }
+    // 1st= 6.350293kg
+    // 1lb= 0.4535923kg
+    private double getResultWeight() {
+        if (mTxtMainSpinerWeight.getText().toString().equals("kg")){
+            return Double.parseDouble(mEdtSpinerWeightWithKg.getText().toString());
+        }else if (mTxtMainSpinerWeight.getText().toString().equals("lb")){
+            return Double.parseDouble(mEdtSpinerWeightWithLb.getText().toString());
+        }else {
+            float st = Float.parseFloat( mEdtSpinerWeightWithSt.getText().toString());
+            float stlb = Float.parseFloat( mEdtSpinerWeightWithStLb.getText().toString());
+            return Double.parseDouble((st*6.35)+(stlb*0.45)+"");
+        }
+    }
+
+    //1 inch is equal to 2.54cm
+    //1 foot is equal to 30.48cm
+    private double getResultHeight() {
+        if (mTxtMainSpinerHeight.getText().toString().equals("cm")){
+            return Double.parseDouble(mEdtSpinerHeightWithCm.getText().toString());
+        }else {
+            float fit = Float.parseFloat( mEdtSpinerHeightWithFt.getText().toString());
+            float in = Float.parseFloat( mEdtSpinerHeightWithIn.getText().toString());
+            return Double.parseDouble((fit*30.48)+(in*2.54)+"");
+        }
     }
 
     @Override
@@ -173,48 +342,52 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
                     finish();
                     break;
                 case R.id.btn_number_zero:
-                    int selectionEnd = mEditTextForcus.getSelectionEnd();
-                    int length = mEditTextForcus.getText().toString().length();
-                   if (selectionEnd == 0){
-                       String substring = mEditTextForcus.getText().toString().substring(selectionEnd, length);
-                       mEditTextForcus.setText("0"+substring);
-                   }else if (selectionEnd == length){
-                       String substring = mEditTextForcus.getText().toString().substring(0, length);
-                       mEditTextForcus.setText(substring+"0");
-                   }else {
-                       String startString = mEditTextForcus.getText().toString().substring(0, selectionEnd);
-                       String endString = mEditTextForcus.getText().toString().substring(selectionEnd, length);
-                       mEditTextForcus.setText(startString+"0"+endString);
-                   }
-                    mEditTextForcus.setSelection(selectionEnd+1);
-                    Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("0",1);
                     break;
                 case R.id.btn_number_one:
-                    Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("1",1);
                     break;
                 case R.id.btn_number_two:
-                    Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("2",1);
                     break;
                 case R.id.btn_number_three:
-                    Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("3",1);
                     break;
                 case R.id.btn_number_four:
-                    Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("4",1);
                     break;
                 case R.id.btn_number_five:
-                    Toast.makeText(this, "5", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("5",1);
                     break;
                 case R.id.btn_number_six:
-                    Toast.makeText(this, "6", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("6",1);
                     break;
                 case R.id.btn_number_seven:
-                    Toast.makeText(this, "7", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("7",1);
                     break;
                 case R.id.btn_number_eight:
-                    Toast.makeText(this, "8", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("8",1);
                     break;
                 case R.id.btn_number_nine:
-                    Toast.makeText(this, "9", Toast.LENGTH_SHORT).show();
+                    appendTextInEdtForcus("9",1);
+                    break;
+                case R.id.btn_dot:
+                    appendTextInEdtForcus(".",1);
+                    break;
+                case R.id.btn_clear_text:
+                    int selectionEnd = mEditTextForcus.getSelectionEnd();
+                    int length = mEditTextForcus.getText().toString().length();
+                    if (length > 0 && selectionEnd > 0){
+                      if (selectionEnd == length){
+                            String substring = mEditTextForcus.getText().toString().substring(0, length-1);
+                            mEditTextForcus.setText(substring);
+                        }else {
+                            String startString = mEditTextForcus.getText().toString().substring(0, selectionEnd-1);
+                            String endString = mEditTextForcus.getText().toString().substring(selectionEnd, length);
+                            mEditTextForcus.setText(startString+endString);
+                        }
+                        mEditTextForcus.setSelection(selectionEnd-1);
+                    }
                     break;
                 case R.id.bmi_img_question:
                     FragmentManager fm = getSupportFragmentManager();
@@ -272,6 +445,22 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
                     break;
             }
         }
+    }
+    public void appendTextInEdtForcus(String appendText,int selectAdd){
+        int selectionEnd = mEditTextForcus.getSelectionEnd();
+        int length = mEditTextForcus.getText().toString().length();
+        if (selectionEnd == 0){
+            String substring = mEditTextForcus.getText().toString().substring(selectionEnd, length);
+            mEditTextForcus.setText(appendText+substring);
+        }else if (selectionEnd == length){
+            String substring = mEditTextForcus.getText().toString().substring(0, length);
+            mEditTextForcus.setText(substring+appendText);
+        }else {
+            String startString = mEditTextForcus.getText().toString().substring(0, selectionEnd);
+            String endString = mEditTextForcus.getText().toString().substring(selectionEnd, length);
+            mEditTextForcus.setText(startString+appendText+endString);
+        }
+        mEditTextForcus.setSelection(selectionEnd+selectAdd);
     }
 
     public boolean hideViewDropDownSpiner() {

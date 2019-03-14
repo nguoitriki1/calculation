@@ -27,33 +27,22 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout"
                     android:layout_width="0dp"
-                    android:layout_height="167dp"
-                    android:background="@color/colorOrange"
+                    android:layout_height="186dp"
+                    android:background="@drawable/menu_header_bg"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/logo_app_icon" />
-                </android.support.constraint.ConstraintLayout>
+                    app:layout_constraintTop_toTopOf="parent"></android.support.constraint.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/elite_calculator"
                     android:textColor="@color/colorOrange"
-                    android:textSize="20sp"
+                    android:textSize="26sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -61,12 +50,12 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/setting"
                     android:textColor="@color/colorOrange"
-                    android:textSize="20sp"
+                    android:textSize="26sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -74,12 +63,12 @@
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/more"
                     android:textColor="@color/colorOrange"
-                    android:textSize="20sp"
+                    android:textSize="26sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -87,11 +76,11 @@
                     android:id="@+id/view"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginRight="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@android:color/darker_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -102,21 +91,21 @@
                     android:id="@+id/layout_item_calculation"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView"
-                    android:focusable="true">
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
                         android:src="@drawable/icon_calculator" />
 
                     <TextView
@@ -134,12 +123,12 @@
                     android:id="@+id/layout_item_equation"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -148,9 +137,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_equation" />
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/icon_equation" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -167,12 +156,12 @@
                     android:id="@+id/layout_item_photo"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -181,8 +170,8 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
                         android:src="@drawable/icon_photo" />
 
                     <TextView
@@ -200,12 +189,12 @@
                     android:id="@+id/layout_item_bmi"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -214,9 +203,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_bmi" />
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/icon_menu_bmi" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -233,11 +222,11 @@
                     android:id="@+id/view2"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginRight="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@android:color/darker_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -248,12 +237,12 @@
                     android:id="@+id/layout_item_floating"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -262,9 +251,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_floating" />
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/icon_menu_floating" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -281,12 +270,12 @@
                     android:id="@+id/layout_item_vibrate"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -295,9 +284,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_vibrate" />
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/icon_menu_vibration" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -314,12 +303,12 @@
                     android:id="@+id/layout_item_sound"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -328,9 +317,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_sound" />
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/icon_menu_sound" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -347,12 +336,12 @@
                     android:id="@+id/layout_item_privacy_policy"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -361,9 +350,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_privacy_policy" />
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/icon_menu_privacy" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -375,16 +364,17 @@
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/text_size_menu_drawer" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/layout_item_history"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -393,9 +383,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_history" />
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/icon_menu_history" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -412,12 +402,12 @@
                     android:id="@+id/layout_item_rate_us"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/ripper_button"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:background="@drawable/ripper_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -426,9 +416,9 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/icon_like" />
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:src="@drawable/icon_menu_like" />
 
                     <TextView
                         android:layout_width="match_parent"

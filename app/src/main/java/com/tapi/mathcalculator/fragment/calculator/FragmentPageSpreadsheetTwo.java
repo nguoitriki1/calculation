@@ -1,6 +1,7 @@
 package com.tapi.mathcalculator.fragment.calculator;
 
-import android.graphics.Paint;
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,18 +9,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.SuperscriptSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.tapi.mathcalculator.HomePageCalculatorViewModel;
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.lib.VerticalViewPager;
 
@@ -28,10 +24,12 @@ public class FragmentPageSpreadsheetTwo extends Fragment implements View.OnClick
             mBtnRAD, mBtnSin, mBtnCos, mBtnTan, mBtnPi, mBtnAsin, mBtnAcos, mBtnAtan, mBtnLog, mBtnLg, mBtnLn, mBtnE, mBtnHide, mBtnSquareRootOf2, mBtnSquareRootOf3, mBtnFactorialCalculation;
     private VerticalViewPager mVerticalViewPagerMain;
     private EditText mEdtResultMain;
+    private HomePageCalculatorViewModel viewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        viewModel = ViewModelProviders.of(this).get(HomePageCalculatorViewModel.class);
         return inflater.inflate(R.layout.fragment_spread_sheet_two, container, false);
     }
 

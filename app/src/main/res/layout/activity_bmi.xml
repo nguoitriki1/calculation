@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12">
+        app:layout_constraintTop_toBottomOf="@+id/bmi_txt_result">
 
         <TextView
             android:id="@+id/btn_number_seven"
@@ -205,6 +205,7 @@
         android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
         android:layout_height="56dp"
+        android:layout_marginTop="24dp"
         android:background="@color/colorlightGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -450,7 +451,7 @@
         app:layout_constraintTop_toTopOf="@+id/edt_spiner_weight_with_stlb" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/bmi_txt_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
