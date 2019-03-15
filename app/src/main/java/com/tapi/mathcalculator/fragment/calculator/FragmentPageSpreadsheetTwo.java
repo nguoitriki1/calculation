@@ -29,7 +29,7 @@ public class FragmentPageSpreadsheetTwo extends Fragment implements View.OnClick
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewModel = ViewModelProviders.of(this).get(HomePageCalculatorViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(HomePageCalculatorViewModel.class);
         return inflater.inflate(R.layout.fragment_spread_sheet_two, container, false);
     }
 

@@ -48,7 +48,7 @@ public class FragmentCalculator extends Fragment implements View.OnClickListener
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewModel = ViewModelProviders.of(this).get(HomePageCalculatorViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(HomePageCalculatorViewModel.class);
         return inflater.inflate(R.layout.fragment_calculator,container,false);
     }
 

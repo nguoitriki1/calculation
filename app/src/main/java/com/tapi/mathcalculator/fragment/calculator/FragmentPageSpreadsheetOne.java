@@ -32,7 +32,7 @@ public class FragmentPageSpreadsheetOne extends Fragment implements View.OnClick
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewModel = ViewModelProviders.of(this).get(HomePageCalculatorViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(HomePageCalculatorViewModel.class);
         return inflater.inflate(R.layout.fragment_spread_sheet_one, container, false);
     }
 
@@ -119,6 +119,7 @@ public class FragmentPageSpreadsheetOne extends Fragment implements View.OnClick
             public boolean onLongClick(View v) {
                 mEdtResultMain.setText("");
                 mTxtResult.setText("0");
+                viewModel.clearListResult();
                 return false;
             }
         });
@@ -131,30 +132,37 @@ public class FragmentPageSpreadsheetOne extends Fragment implements View.OnClick
                 case R.id.btn_percent:
                     changeButtonClr();
                     appendTextInEdtResult("%");
+                    viewModel.digit("%".charAt(0));
                     break;
                 case R.id.btn_open_brackets:
                     changeButtonClr();
                     appendTextInEdtResult("(");
+                    viewModel.digit("(".charAt(0));
                     break;
                 case R.id.btn_close_brackets:
                     changeButtonClr();
                     appendTextInEdtResult(")");
+                    viewModel.digit(")".charAt(0));
                     break;
                 case R.id.btn_division:
                     changeButtonClr();
                     appendTextInEdtResult("/");
+                    viewModel.digit("/".charAt(0));
                     break;
                 case R.id.btn_multiplication:
                     changeButtonClr();
                     appendTextInEdtResult("x");
+                    viewModel.digit("x".charAt(0));
                     break;
                 case R.id.btn_subtraction:
                     changeButtonClr();
                     appendTextInEdtResult("-");
+                    viewModel.digit("-".charAt(0));
                     break;
                 case R.id.btn_add:
                     changeButtonClr();
                     appendTextInEdtResult("+");
+                    viewModel.digit("+".charAt(0));
                     break;
                 case R.id.btn_summary:
                     if (TextUtils.isEmpty(mEdtResultMain.getText().toString())){
@@ -187,46 +195,57 @@ public class FragmentPageSpreadsheetOne extends Fragment implements View.OnClick
                 case R.id.btn_number_zero:
                     changeButtonClr();
                     appendTextInEdtResult("0");
+                    viewModel.digit("0".charAt(0));
                     break;
                 case R.id.btn_number_one:
                     changeButtonClr();
                     appendTextInEdtResult("1");
+                    viewModel.digit("1".charAt(0));
                     break;
                 case R.id.btn_number_two:
                     changeButtonClr();
                     appendTextInEdtResult("2");
+                    viewModel.digit("2".charAt(0));
                     break;
                 case R.id.btn_number_three:
                     changeButtonClr();
                     appendTextInEdtResult("3");
+                    viewModel.digit("3".charAt(0));
                     break;
                 case R.id.btn_number_four:
                     changeButtonClr();
                     appendTextInEdtResult("4");
+                    viewModel.digit("4".charAt(0));
                     break;
                 case R.id.btn_number_five:
                     changeButtonClr();
                     appendTextInEdtResult("5");
+                    viewModel.digit("5".charAt(0));
                     break;
                 case R.id.btn_number_six:
                     changeButtonClr();
                     appendTextInEdtResult("6");
+                    viewModel.digit("6".charAt(0));
                     break;
                 case R.id.btn_number_seven:
                     changeButtonClr();
                     appendTextInEdtResult("7");
+                    viewModel.digit("7".charAt(0));
                     break;
                 case R.id.btn_number_eight:
                     changeButtonClr();
                     appendTextInEdtResult("8");
+                    viewModel.digit("8".charAt(0));
                     break;
                 case R.id.btn_number_nine:
                     changeButtonClr();
                     appendTextInEdtResult("9");
+                    viewModel.digit("9".charAt(0));
                     break;
                 case R.id.btn_dot:
                     changeButtonClr();
                     appendTextInEdtResult(".");
+                    viewModel.decimal(".");
                     break;
                 case R.id.btn_clear_text:
                     try {
