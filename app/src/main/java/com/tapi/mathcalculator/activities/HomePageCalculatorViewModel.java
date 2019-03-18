@@ -4,8 +4,8 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
-import com.tapi.mathcalculator.utils.StringObject;
-import com.tapi.mathcalculator.function.calculator.Equation;
+import com.tapi.mathcalculator.fragment.calculator.Equation;
+import com.tapi.mathcalculator.utils.UtilsString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -135,6 +135,36 @@ public class HomePageCalculatorViewModel extends ViewModel {
 
     public void totalResul(String s) {
         setTxtResultOb(eq.getText());
+    }
+
+    public String calculatorString(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            s = checkCharInString(s, s.charAt(i), i, s.length());
+        }
+        return s;
+    }
+
+    public String checkCharInString(String txtResult, char charAt, int index, int lenght) {
+        if (index == 0){
+            //ky' tu do nam o dau tien
+
+        }else if (index == lenght - 1){
+            //neu ky tu do nam o cuoi cung
+
+            switch (charAt){
+                case '%':
+                    return txtResult.replace("%", "/100");
+            }
+        }else {
+            // neu ky tu do nam o giua
+
+            switch (charAt){
+                case '%':
+                    return txtResult.replace("%", "/100*");
+            }
+
+        }
+        return txtResult;
     }
 
 }
