@@ -32,4 +32,17 @@
         <!--<item name="android:windowExitAnimation">@anim/slide_down</item>-->
     </style>
 
+    <style name="keyboard_item">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">#333</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/key_item_selector</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:soundEffectsEnabled">false</item>
+    </style>
+
+
 </resources>

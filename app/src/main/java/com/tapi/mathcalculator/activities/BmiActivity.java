@@ -1,9 +1,7 @@
-package com.tapi.mathcalculator;
+package com.tapi.mathcalculator.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Build;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentManager;
@@ -11,20 +9,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.tapi.mathcalculator.fragment.bmi.DialogQuestionFragment;
+import com.tapi.mathcalculator.R;
+import com.tapi.mathcalculator.function.fragment.bmi.DialogQuestionFragment;
 import com.tapi.mathcalculator.utils.StaticFuncition;
 import com.tapi.mathcalculator.utils.UtilsString;
 

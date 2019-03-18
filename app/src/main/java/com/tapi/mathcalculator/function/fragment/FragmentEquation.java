@@ -1,4 +1,4 @@
-package com.tapi.mathcalculator.fragment;
+package com.tapi.mathcalculator.function.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 
 import com.tapi.mathcalculator.R;
 
-public class FragmentPhoto extends Fragment {
+public class FragmentEquation extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_photo,container,false);
+        return inflater.inflate(R.layout.fragment_equation,container,false);
     }
 
     @Override

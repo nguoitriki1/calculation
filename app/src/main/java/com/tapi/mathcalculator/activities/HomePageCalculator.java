@@ -1,6 +1,5 @@
-package com.tapi.mathcalculator;
+package com.tapi.mathcalculator.activities;
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Build;
@@ -18,10 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tapi.mathcalculator.adapter.ViewPagerAdapter;
-import com.tapi.mathcalculator.fragment.calculator.FragmentCalculator;
-import com.tapi.mathcalculator.fragment.FragmentEquation;
-import com.tapi.mathcalculator.fragment.FragmentPhoto;
+import com.tapi.mathcalculator.R;
+import com.tapi.mathcalculator.function.adapter.ViewPagerAdapter;
+import com.tapi.mathcalculator.function.calculator.FragmentCalculator;
+import com.tapi.mathcalculator.function.fragment.FragmentEquation;
+import com.tapi.mathcalculator.function.fragment.FragmentPhoto;
 import com.tapi.mathcalculator.utils.UtilsString;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
@@ -112,7 +112,7 @@ public class HomePageCalculator extends AppCompatActivity implements View.OnClic
                 mViewPager.setCurrentItem(2);
                 break;
             case R.id.layout_item_bmi:
-                startActivity(new Intent(HomePageCalculator.this,BmiActivity.class));
+                startActivity(new Intent(HomePageCalculator.this, BmiActivity.class));
                 break;
             case R.id.layout_item_floating:
                 Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();

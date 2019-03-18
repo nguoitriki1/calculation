@@ -1,4 +1,4 @@
-package com.tapi.mathcalculator.fragment.bmi;
+package com.tapi.mathcalculator.function.fragment.bmi;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

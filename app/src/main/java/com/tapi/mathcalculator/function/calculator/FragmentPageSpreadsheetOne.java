@@ -1,6 +1,5 @@
-package com.tapi.mathcalculator.fragment.calculator;
+package com.tapi.mathcalculator.function.calculator;
 
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,9 +16,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
-import com.tapi.mathcalculator.HomePageCalculatorViewModel;
+import com.tapi.mathcalculator.activities.HomePageCalculatorViewModel;
 import com.tapi.mathcalculator.R;
 
 public class FragmentPageSpreadsheetOne extends Fragment implements View.OnClickListener {

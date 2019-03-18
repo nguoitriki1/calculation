@@ -1,6 +1,5 @@
-package com.tapi.mathcalculator.fragment.calculator;
+package com.tapi.mathcalculator.function.calculator;
 
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,9 +14,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.tapi.mathcalculator.HomePageCalculatorViewModel;
+import com.tapi.mathcalculator.activities.HomePageCalculatorViewModel;
 import com.tapi.mathcalculator.R;
-import com.tapi.mathcalculator.lib.VerticalViewPager;
+import com.tapi.mathcalculator.function.lib.VerticalViewPager;
 
 public class FragmentPageSpreadsheetTwo extends Fragment implements View.OnClickListener {
     private TextView mTxtResult, mBtnExponential1, mBtnExponential2, mBtnExponential3, mBtnExponential4,

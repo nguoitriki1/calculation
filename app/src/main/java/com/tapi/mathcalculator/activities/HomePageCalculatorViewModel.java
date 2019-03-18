@@ -1,10 +1,11 @@
-package com.tapi.mathcalculator;
+package com.tapi.mathcalculator.activities;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
-import com.tapi.mathcalculator.fragment.calculator.Equation;
+import com.tapi.mathcalculator.utils.StringObject;
+import com.tapi.mathcalculator.function.calculator.Equation;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,4 @@
-package com.tapi.mathcalculator.fragment.calculator;
-
-import android.util.Log;
-import android.widget.Toast;
+package com.tapi.mathcalculator.function.calculator;
 
 import java.util.ArrayList;
 

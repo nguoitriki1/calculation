@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tapi.mathcalculator.ui.CalculationResultView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/calculation_out_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:overScrollMode="never"
+        android:scrollbarSize="1px"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="horizontal">
+
+        <EditText
+            android:id="@+id/calculation_in_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@null"
+            android:gravity="top|right|center_vertical|center_horizontal|center|end"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+            android:textColor="#333"
+            android:textSize="20dp" />
+    </HorizontalScrollView>
+
+
+</com.tapi.mathcalculator.ui.CalculationResultView>

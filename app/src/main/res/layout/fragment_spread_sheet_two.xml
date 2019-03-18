@@ -8,10 +8,10 @@
     android:background="@android:color/white"
     app:ignore="NamespaceTypo">
 
-    <TextView
+    <com.tapi.mathcalculator.ui.keyboard.KeyItemView
         android:id="@+id/btn_atan"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="atan"
@@ -22,10 +22,10 @@
         grid:layout_constraintStart_toEndOf="@+id/btn_acos"
         grid:layout_constraintTop_toBottomOf="@+id/btn_tan" />
 
-    <TextView
+    <com.tapi.mathcalculator.ui.keyboard.KeyItemView
         android:id="@+id/btn_pi"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="@string/pi"
@@ -36,10 +36,10 @@
         grid:layout_constraintStart_toStartOf="parent"
         grid:layout_constraintTop_toBottomOf="@+id/btn_rad" />
 
-    <TextView
+    <com.tapi.mathcalculator.ui.keyboard.KeyItemView
         android:id="@+id/btn_rad"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="RAD"
@@ -50,16 +50,16 @@
         grid:layout_constraintStart_toStartOf="parent"
         grid:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.tapi.mathcalculator.ui.keyboard.KeyItemView
         android:id="@+id/btn_exponential1"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/size_text_grid"
+        android:paddingStart="21dp"
         android:paddingLeft="21dp"
         android:paddingTop="16dp"
-        android:paddingStart="21dp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
         grid:layout_constraintBottom_toTopOf="@+id/btn_log"
         grid:layout_constraintEnd_toStartOf="@+id/btn_exponential2"
         grid:layout_constraintStart_toStartOf="parent"
@@ -67,8 +67,8 @@
 
     <TextView
         android:id="@+id/btn_log"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="log"
@@ -81,8 +81,8 @@
 
     <TextView
         android:id="@+id/btn_hide"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="\u2193"
@@ -95,8 +95,8 @@
 
     <TextView
         android:id="@+id/btn_square_root_of_2"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="@string/square_root_of_2"
@@ -109,8 +109,8 @@
 
     <TextView
         android:id="@+id/btn_square_root_of_3"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:padding="15dp"
@@ -124,8 +124,8 @@
 
     <TextView
         android:id="@+id/btn_lg"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="lg"
@@ -138,8 +138,8 @@
 
     <TextView
         android:id="@+id/btn_ln"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="ln"
@@ -152,14 +152,14 @@
 
     <TextView
         android:id="@+id/btn_exponential2"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/size_text_grid"
+        android:paddingStart="21dp"
         android:paddingLeft="21dp"
         android:paddingTop="16dp"
-        android:paddingStart="21dp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/size_text_grid"
         grid:layout_constraintBottom_toTopOf="@+id/btn_lg"
         grid:layout_constraintEnd_toStartOf="@+id/btn_exponential3"
         grid:layout_constraintStart_toEndOf="@+id/btn_exponential1"
@@ -167,8 +167,8 @@
 
     <TextView
         android:id="@+id/btn_exponential3"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:paddingLeft="21dp"
         android:paddingTop="16dp"
@@ -182,8 +182,8 @@
 
     <TextView
         android:id="@+id/btn_asin"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="asin"
@@ -196,8 +196,8 @@
 
     <TextView
         android:id="@+id/btn_acos"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="acos"
@@ -210,8 +210,8 @@
 
     <TextView
         android:id="@+id/btn_sin"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="@string/sin"
@@ -224,8 +224,8 @@
 
     <TextView
         android:id="@+id/btn_cos"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="cos"
@@ -238,8 +238,8 @@
 
     <TextView
         android:id="@+id/btn_factorial_calculation"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="n!"
@@ -252,8 +252,8 @@
 
     <TextView
         android:id="@+id/btn_e"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="e"
@@ -266,8 +266,8 @@
 
     <TextView
         android:id="@+id/btn_exponential4"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:paddingLeft="21dp"
         android:paddingTop="16dp"
@@ -281,8 +281,8 @@
 
     <TextView
         android:id="@+id/btn_tan"
-        android:layout_width="@dimen/size_button_grid"
-        android:layout_height="@dimen/size_button_grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/ripper_button_math"
         android:gravity="center"
         android:text="tan"

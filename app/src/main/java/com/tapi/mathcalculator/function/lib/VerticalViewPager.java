@@ -1,4 +1,4 @@
-package com.tapi.mathcalculator.lib;
+package com.tapi.mathcalculator.function.lib;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

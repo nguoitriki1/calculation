@@ -1,4 +1,4 @@
-package com.tapi.mathcalculator.adapter;
+package com.tapi.mathcalculator.function.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,4 @@
-package com.tapi.mathcalculator;
+package com.tapi.mathcalculator.utils;
 
 public class StringObject {
     private String id;
