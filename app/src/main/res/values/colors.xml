@@ -8,4 +8,9 @@
     <color name="colorOrangeDark">#D18D1D</color>
     <color name="colorPink">#A8FF5F20</color>
     <color name="colorTrasnGray">#41000000</color>
+    <color name="colorGraySplashText">#636363</color>
+    <color name="colorSwitchOff">@color/colorSwitchOn</color>
+    <color name="colorSwitchOn">#ffd9d9d9</color>
+    <color name="setting_switch_thumb_stroke">#ff363636</color>
+    <color name="setting_switch_thumb_on">#edfe0e2b</color>
 </resources>

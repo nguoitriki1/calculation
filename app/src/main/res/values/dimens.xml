@@ -9,4 +9,12 @@
     <dimen name="size_button_grid">65dp</dimen>
     <dimen name="size_text_grid">20sp</dimen>
     <dimen name="size_text_result">80sp</dimen>
+    <dimen name="calculation_in_text_size">33sp</dimen>
+    <dimen name="keyboard_item_text_size">30.0sp</dimen>
+    <dimen name="keyboard_item_text_size_min">20.0sp</dimen>
+    <dimen name="common_toolbar_size">48dp</dimen>
+    <dimen name="setting_switch_thumb_w_h">14dp</dimen>
+    <dimen name="setting_switch_bg_w">27dp</dimen>
+    <dimen name="setting_switch_bg_stroke">4dp</dimen>
+    <dimen name="setting_switch_thumb_stroke">2dp</dimen>
 </resources>

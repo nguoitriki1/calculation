@@ -128,7 +128,7 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
 
     private void scrollView(boolean z) {
         int scrollY = getScrollY();
-        if (scrollY > getHeight() / 2) {
+        if (scrollY > getHeight()/2) {
             fullScroll(FOCUS_DOWN);
         } else {
             fullScroll(FOCUS_UP);

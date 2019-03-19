@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,28 +14,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.adapter.ViewPagerAdapter;
-import com.tapi.mathcalculator.function.calculator.FragmentCalculator;
+import com.tapi.mathcalculator.function.calculator.CalculatorFragment;
 import com.tapi.mathcalculator.function.equation.EquationFragment;
-import com.tapi.mathcalculator.function.photo.FragmentPhoto;
+import com.tapi.mathcalculator.function.photo.PhotoFragment;
+import com.tapi.mathcalculator.ui.nav.NavigationMenuView;
+import com.tapi.mathcalculator.ui.toolbar.HomePageToolbarView;
 import com.tapi.mathcalculator.utils.UtilsString;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 
-public class HomePageActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
-    private ImageView mMenuBtn;
-    private DrawerLayout mDrawer;
-    private DotsIndicator mDotsIndicator;
-    private ViewPager mViewPager;
-    private ViewPagerAdapter adapter;
-    private TextView mTitlePage;
-    private LinearLayout mBtnCalculator,mBtnEquation,mBtnPhoto,mBtnBMI,mBtnFloating,mBtnVibrate,mBtnSound,mBtnHistory,mBtnRateUs,mBtnPrivacyPolicy;
+public class HomePageActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     private HomePageViewModel viewModel;
+    private NavigationMenuView navigationMenuView;
+    private HomePageToolbarView homePageToolbarView;
+    private ViewPagerAdapter adapter;
+    private DrawerLayout mDrawer;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,46 +43,80 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-        setContentView(R.layout.activity_home_page_calculator);
-        viewModel = ViewModelProviders.of(this).get(HomePageViewModel.class);
-        //viewmodel
-        //find by id
-        mMenuBtn = findViewById(R.id.img_menu);
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDotsIndicator = findViewById(R.id.dots_indicator);
-        mViewPager = findViewById(R.id.view_pager_main);
-        mTitlePage = findViewById(R.id.title_home_page);
-        mBtnCalculator = findViewById(R.id.layout_item_calculation);
-        mBtnEquation = findViewById(R.id.layout_item_equation);
-        mBtnPhoto = findViewById(R.id.layout_item_photo);
-        mBtnBMI = findViewById(R.id.layout_item_bmi);
-        mBtnFloating = findViewById(R.id.layout_item_floating);
-        mBtnVibrate = findViewById(R.id.layout_item_vibrate);
-        mBtnSound = findViewById(R.id.layout_item_sound);
-        mBtnHistory = findViewById(R.id.layout_item_history);
-        mBtnRateUs = findViewById(R.id.layout_item_rate_us);
-        mBtnPrivacyPolicy = findViewById(R.id.layout_item_privacy_policy);
+        setContentView(R.layout.home_page_activity);
         initView();
+        setClickView();
     }
 
     private void initView() {
-        mMenuBtn.setOnClickListener(this);
+        viewModel = ViewModelProviders.of(this).get(HomePageViewModel.class);
+        mViewPager = findViewById(R.id.view_pager_main);
+        navigationMenuView = findViewById(R.id.nav_menu_view);
+        homePageToolbarView = findViewById(R.id.home_page_toolbar);
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new CalculatorFragment(), UtilsString.TITLE_FRAGMENT_CALCULATOR);
+        adapter.addFrag(new EquationFragment(), UtilsString.TITLE_FRAGMENT_EQUATION);
+        adapter.addFrag(new PhotoFragment(), UtilsString.TITLE_FRAGMENT_PHOTO);
         mViewPager.setAdapter(adapter);
         mViewPager.addOnPageChangeListener(this);
-        mDotsIndicator.setViewPager(mViewPager);
+        homePageToolbarView.initDot(mViewPager);
+    }
 
-        mBtnCalculator.setOnClickListener(this);
-        mBtnEquation.setOnClickListener(this);
-        mBtnPhoto.setOnClickListener(this);
-        mBtnBMI.setOnClickListener(this);
-        mBtnFloating.setOnClickListener(this);
-        mBtnVibrate.setOnClickListener(this);
-        mBtnSound.setOnClickListener(this);
-        mBtnHistory.setOnClickListener(this);
-        mBtnRateUs.setOnClickListener(this);
-        mBtnPrivacyPolicy.setOnClickListener(this);
-
+    private void setClickView() {
+        homePageToolbarView.setOnClickBtnShowMenuNavListner(new HomePageToolbarView.OnClickBtnShowMenuNavListner() {
+            @Override
+            public void onClickBtnShowMenuNav() {
+                mDrawer.openDrawer(Gravity.START);
+            }
+        });
+        navigationMenuView.setOnNavMenuclickListner(new NavigationMenuView.OnNavMenuclickListner() {
+            @Override
+            public void onMenuClickListner(View view, int id) {
+                switch (id) {
+                    case R.id.img_menu:
+                        mDrawer.openDrawer(GravityCompat.START);
+                        break;
+                    case R.id.layout_item_calculation:
+                        mViewPager.setCurrentItem(0);
+                        hideDrawerNav();
+                        break;
+                    case R.id.layout_item_equation:
+                        hideDrawerNav();
+                        mViewPager.setCurrentItem(1);
+                        break;
+                    case R.id.layout_item_photo:
+                        hideDrawerNav();
+                        mViewPager.setCurrentItem(2);
+                        break;
+                    case R.id.layout_item_bmi:
+                        startActivity(new Intent(HomePageActivity.this, BmiActivity.class));
+                        hideDrawerNav();
+                        break;
+                    case R.id.layout_item_floating:
+                        navigationMenuView.floattingSwitchClick();
+                        break;
+                    case R.id.layout_item_vibrate:
+                        navigationMenuView.vibrateSwitchClick();
+                        break;
+                    case R.id.layout_item_sound:
+                        navigationMenuView.soundSwitchClick();
+                        break;
+                    case R.id.layout_item_history:
+                        Toast.makeText(HomePageActivity.this, "history", Toast.LENGTH_SHORT).show();
+                        hideDrawerNav();
+                        break;
+                    case R.id.layout_item_rate_us:
+                        Toast.makeText(HomePageActivity.this, "rate us", Toast.LENGTH_SHORT).show();
+                        hideDrawerNav();
+                        break;
+                    case R.id.layout_item_privacy_policy:
+                        Toast.makeText(HomePageActivity.this, "privacy policy", Toast.LENGTH_SHORT).show();
+                        hideDrawerNav();
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -93,47 +127,6 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             super.onBackPressed();
         }
     }
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.img_menu :
-                mDrawer.openDrawer(GravityCompat.START);
-                break;
-            case R.id.layout_item_calculation:
-                mViewPager.setCurrentItem(0);
-                break;
-            case R.id.layout_item_equation:
-                mViewPager.setCurrentItem(1);
-                break;
-            case R.id.layout_item_photo:
-                mViewPager.setCurrentItem(2);
-                break;
-            case R.id.layout_item_bmi:
-                startActivity(new Intent(HomePageActivity.this, BmiActivity.class));
-                break;
-            case R.id.layout_item_floating:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.layout_item_vibrate:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.layout_item_sound:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.layout_item_history:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.layout_item_rate_us:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.layout_item_privacy_policy:
-                Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-            mDrawer.closeDrawer(GravityCompat.START);
-        }
-    }
 
     @Override
     public void onPageScrolled(int i, float v, int i1) {
@@ -142,9 +135,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onPageSelected(int i) {
-        if (!TextUtils.isEmpty(adapter.getPageTitle(i))){
-            CharSequence pageTitle = adapter.getPageTitle(i);
-            mTitlePage.setText(pageTitle);
+        if (!TextUtils.isEmpty(adapter.getPageTitle(i))) {
+            homePageToolbarView.setmTitlePage(String.valueOf(adapter.getPageTitle(i)));
         }
 
     }
@@ -152,5 +144,10 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onPageScrollStateChanged(int i) {
 
+    }
+    public void hideDrawerNav(){
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawer(GravityCompat.START);
+        }
     }
 }

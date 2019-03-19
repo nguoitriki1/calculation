@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+
+        <shape android:shape="rectangle">
+
+            <solid android:color="@color/colorSwitchOn" />
+
+            <corners android:radius="@dimen/setting_switch_thumb_w_h" />
+
+            <size
+                android:width="@dimen/setting_switch_bg_w"
+                android:height="@dimen/setting_switch_thumb_w_h" />
+
+            <stroke
+                android:width="@dimen/setting_switch_bg_stroke"
+                android:color="@android:color/transparent" />
+
+        </shape>
+
+    </item>
+
+    <item android:right="@dimen/setting_switch_thumb_w_h">
+
+        <shape android:shape="oval">
+
+            <solid android:color="@color/colorSwitchOff" />
+
+            <size
+                android:width="@dimen/setting_switch_thumb_w_h"
+                android:height="@dimen/setting_switch_thumb_w_h" />
+
+            <stroke
+                android:width="@dimen/setting_switch_thumb_stroke"
+                android:color="@color/setting_switch_thumb_stroke" />
+
+        </shape>
+
+    </item>
+
+</layer-list>
