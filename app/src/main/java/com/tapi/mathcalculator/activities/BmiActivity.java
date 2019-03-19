@@ -20,7 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tapi.mathcalculator.R;
-import com.tapi.mathcalculator.function.fragment.bmi.DialogQuestionFragment;
 import com.tapi.mathcalculator.utils.StaticFuncition;
 import com.tapi.mathcalculator.utils.UtilsString;
 
@@ -386,11 +385,11 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
                     }
                     break;
                 case R.id.bmi_img_question:
-                    FragmentManager fm = getSupportFragmentManager();
-                    DialogQuestionFragment dialogFragment = new DialogQuestionFragment();
-                    if (!dialogFragment.isHidden()) {
-                        dialogFragment.show(fm, "DialogQuestionFragment");
-                    }
+//                    FragmentManager fm = getSupportFragmentManager();
+//                    DialogQuestionFragment dialogFragment = new DialogQuestionFragment();
+//                    if (!dialogFragment.isHidden()) {
+//                        dialogFragment.show(fm, "DialogQuestionFragment");
+//                    }
                     break;
 
 //                mEdtSpinerHeightWithCm = findViewById(R.id.edt_spiner_height_with_cm);

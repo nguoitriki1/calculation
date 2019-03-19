@@ -20,13 +20,13 @@ import android.widget.Toast;
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.adapter.ViewPagerAdapter;
 import com.tapi.mathcalculator.function.calculator.FragmentCalculator;
-import com.tapi.mathcalculator.function.fragment.FragmentEquation;
-import com.tapi.mathcalculator.function.fragment.FragmentPhoto;
+import com.tapi.mathcalculator.function.equation.EquationFragment;
+import com.tapi.mathcalculator.function.photo.FragmentPhoto;
 import com.tapi.mathcalculator.utils.UtilsString;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 
-public class HomePageCalculator extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class HomePageActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
     private ImageView mMenuBtn;
     private DrawerLayout mDrawer;
     private DotsIndicator mDotsIndicator;
@@ -34,7 +34,7 @@ public class HomePageCalculator extends AppCompatActivity implements View.OnClic
     private ViewPagerAdapter adapter;
     private TextView mTitlePage;
     private LinearLayout mBtnCalculator,mBtnEquation,mBtnPhoto,mBtnBMI,mBtnFloating,mBtnVibrate,mBtnSound,mBtnHistory,mBtnRateUs,mBtnPrivacyPolicy;
-    private HomePageCalculatorViewModel viewModel;
+    private HomePageViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,8 @@ public class HomePageCalculator extends AppCompatActivity implements View.OnClic
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
         setContentView(R.layout.activity_home_page_calculator);
+        viewModel = ViewModelProviders.of(this).get(HomePageViewModel.class);
         //viewmodel
-        viewModel = ViewModelProviders.of(this).get(HomePageCalculatorViewModel.class);
         //find by id
         mMenuBtn = findViewById(R.id.img_menu);
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -68,9 +68,6 @@ public class HomePageCalculator extends AppCompatActivity implements View.OnClic
     private void initView() {
         mMenuBtn.setOnClickListener(this);
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new FragmentCalculator(), UtilsString.TITLE_FRAGMENT_CALCULATOR);
-        adapter.addFrag(new FragmentEquation(), UtilsString.TITLE_FRAGMENT_EQUATION);
-        adapter.addFrag(new FragmentPhoto(), UtilsString.TITLE_FRAGMENT_PHOTO);
         mViewPager.setAdapter(adapter);
         mViewPager.addOnPageChangeListener(this);
         mDotsIndicator.setViewPager(mViewPager);
@@ -112,7 +109,7 @@ public class HomePageCalculator extends AppCompatActivity implements View.OnClic
                 mViewPager.setCurrentItem(2);
                 break;
             case R.id.layout_item_bmi:
-                startActivity(new Intent(HomePageCalculator.this, BmiActivity.class));
+                startActivity(new Intent(HomePageActivity.this, BmiActivity.class));
                 break;
             case R.id.layout_item_floating:
                 Toast.makeText(this, "calculation", Toast.LENGTH_SHORT).show();

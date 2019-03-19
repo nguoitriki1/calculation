@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.ui.CalculationResultView;
@@ -21,6 +20,12 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashActivity.this, HomePageActivity.class));
+            }
+        },2000);
 
         mKeyBoard = findViewById(R.id.calculator_keyboard_layout);
         mResultView = findViewById(R.id.calculation_result_view);
