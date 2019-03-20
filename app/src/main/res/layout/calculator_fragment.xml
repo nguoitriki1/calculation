@@ -8,16 +8,17 @@
     <include
         android:id="@+id/calculation_result_view"
         layout="@layout/calculation_result_view"
-        android:layout_width="fill_parent"
-        android:layout_height="0.0dip"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginLeft="16.0dip"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="16.0dip"
-        android:layout_weight="@integer/calculator_weight_head" />
+        android:layout_weight="1.5"/>
 
     <include
         android:id="@+id/calculator_keyboard_layout"
         layout="@layout/calculator_keyboard_layout"
         android:layout_width="fill_parent"
-        android:layout_height="0.0dip"
-        android:layout_weight="@integer/calculator_weight_body" />
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 </LinearLayout>

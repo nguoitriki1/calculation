@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#41000000</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorlightGray">#F5F5F5</color>
     <color name="colorOrange">#ffac92</color>
     <color name="colorOrangeDark">#D18D1D</color>
     <color name="colorPink">#A8FF5F20</color>
-    <color name="colorTrasnGray">#41000000</color>
+    <color name="colorTrasnGray">#5E000000</color>
     <color name="colorGraySplashText">#636363</color>
     <color name="colorSwitchOff">@color/colorSwitchOn</color>
     <color name="colorSwitchOn">#ffd9d9d9</color>
     <color name="setting_switch_thumb_stroke">#ff363636</color>
     <color name="setting_switch_thumb_on">#edfe0e2b</color>
+    <color name="colorEquationDialogItemBg">#F3EDED</color>
 </resources>

@@ -76,11 +76,27 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
 
     }
 
+
     private void addKey(@IdRes int id, Key key) {
         IKeyItem keyItem = (IKeyItem) findViewById(id);
         keyItem.setKey(key);
         keyItem.setOnClickListener(this);
         keyItem.setOnLongClickListener(this);
+    }
+    public void replaceKeyBackByKey(Key key){
+        IKeyItem keyItem = (IKeyItem) findViewById(R.id.kb_back);
+        switch (key){
+            case back:
+                keyItem.setKey(Key.back);
+                keyItem.setOnClickListener(this);
+                keyItem.setOnLongClickListener(this);
+                break;
+            case clr:
+                keyItem.setKey(Key.clr);
+                keyItem.setOnClickListener(this);
+                keyItem.setOnLongClickListener(this);
+                break;
+        }
     }
 
     @Override
@@ -97,7 +113,7 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
         if (v instanceof IKeyItem) {
             Key key = ((IKeyItem) v).getKey();
             if (mOnKeyboardOnClickListener != null)
-                mOnKeyboardOnClickListener.onKeyEvent(v, Event.click, key);
+                mOnKeyboardOnClickListener.onKeyEventClick(v, Event.click, key);
         }
     }
 
@@ -106,7 +122,7 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
         if (v instanceof IKeyItem) {
             Key key = ((IKeyItem) v).getKey();
             if (mOnKeyboardOnClickListener != null)
-                mOnKeyboardOnClickListener.onKeyEvent(v, Event.longClick, key);
+                mOnKeyboardOnClickListener.onKeyEventLongClick(v, Event.longClick, key);
         }
         return true;
     }
@@ -126,13 +142,32 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
         return super.onNestedFling(target, velocityX, velocityY, consumed);
     }
 
-    private void scrollView(boolean z) {
-        int scrollY = getScrollY();
-        if (scrollY > getHeight()/2) {
-            fullScroll(FOCUS_DOWN);
-        } else {
+    public void scrollView(boolean z) {
+        if(z){
             fullScroll(FOCUS_UP);
+        }else {
+            int scrollY = getScrollY();
+            if (scrollY > getHeight()/2) {
+                fullScroll(FOCUS_DOWN);
+            } else {
+                fullScroll(FOCUS_UP);
+            }
         }
     }
 
+    public void replaceKeyRadByKey(Key key) {
+        IKeyItem keyItem = (IKeyItem) findViewById(R.id.kb_deg_rad);
+        switch (key){
+            case deg:
+                keyItem.setKey(Key.rad);
+                keyItem.setOnClickListener(this);
+                keyItem.setOnLongClickListener(this);
+                break;
+            case rad:
+                keyItem.setKey(Key.deg);
+                keyItem.setOnClickListener(this);
+                keyItem.setOnLongClickListener(this);
+                break;
+        }
+    }
 }

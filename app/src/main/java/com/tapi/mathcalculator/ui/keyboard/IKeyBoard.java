@@ -59,7 +59,8 @@ public interface IKeyBoard extends View.OnClickListener, View.OnLongClickListene
         lg("lg"),
         x3("X³"),
         x_1("X⁻¹"),
-        gen3("³√"),
+        gen3("∛"),
+//        gen3("³√"),
         pi(Utils.charsToString((char) 960)),
         e(Utils.charsToString('e')),
         x(Utils.charsToString('x')),
@@ -89,7 +90,8 @@ public interface IKeyBoard extends View.OnClickListener, View.OnLongClickListene
     }
 
     public interface OnKeyboardOnClickListener {
-        void onKeyEvent(View view, Event event, IKeyBoard.Key key);
+        void onKeyEventClick(View view, Event event, IKeyBoard.Key key);
+        void onKeyEventLongClick(View view, Event event, IKeyBoard.Key key);
     }
 
 }

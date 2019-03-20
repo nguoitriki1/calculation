@@ -36,9 +36,9 @@ public class CalculatorFragment extends Fragment {
         mResultView.setOnInTextChangeLister(new CalculationResultView.OnInTextChangeLister() {
             @Override
             public void onAfterInTextChangeListner(Editable s) {
-                if (TextUtils.isEmpty(s)){
+                if (TextUtils.isEmpty(s)) {
                     mResultView.setmOutText("0");
-                }else {
+                } else {
                     mResultView.setmOutText(String.valueOf(s));
                 }
             }
@@ -56,17 +56,112 @@ public class CalculatorFragment extends Fragment {
 
         mKeyBoard.setOnKeyboardOnClickListener(new IKeyBoard.OnKeyboardOnClickListener() {
             @Override
-            public void onKeyEvent(View view, IKeyBoard.Event event, IKeyBoard.Key key) {
+            public void onKeyEventClick(View view, IKeyBoard.Event event, IKeyBoard.Key key) {
                 switch (key) {
+                    case rad:
+                        mKeyBoard.replaceKeyRadByKey(IKeyBoard.Key.rad);
+                        break;
+                    case deg:
+                        mKeyBoard.replaceKeyRadByKey(IKeyBoard.Key.deg);
+                        break;
                     case back:
                         mResultView.removeOneKeyClick();
                         break;
+                    case equal:
+                        mKeyBoard.replaceKeyBackByKey(IKeyBoard.Key.clr);
+                        mResultView.animationResultTxtWhenClickEqual();
+                        break;
+                    case clr:
+                        mResultView.removeAllKey();
+                        mKeyBoard.replaceKeyBackByKey(IKeyBoard.Key.back);
+                        break;
+                    case open:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case sin:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case cos:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case tan:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case asin:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case acos:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case atan:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case pi:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case x_1:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case x2:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case x3:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case xn:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case log:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case lg:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case ln:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case e:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case gen3:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case gen:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
+                    case un:
+                        mKeyBoard.scrollView(true);
+                        mResultView.addKey(key);
+                        break;
                     default:
-                        try {
-                            mResultView.addKey(key);
-                        } catch (Exception e) {
+                        mResultView.addKey(key);
+                        break;
+                }
+            }
 
-                        }
+            @Override
+            public void onKeyEventLongClick(View view, IKeyBoard.Event event, IKeyBoard.Key key) {
+                switch (key) {
+                    case back:
+                        mResultView.removeAllKey();
                         break;
                 }
             }

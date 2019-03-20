@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.tapi.mathcalculator.ui.calculator.CalculationResultView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@android:color/white">
 
     <TextView
-        android:layout_weight="3"
-        android:gravity="center_vertical|right"
         android:id="@+id/calculation_out_text"
-        android:textSize="@dimen/size_text_result"
-        android:textColor="@color/colorOrange"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical|right"
         android:maxLines="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:paddingBottom="16dp"
+        android:textColor="@color/colorOrange"
+        android:textSize="@dimen/size_text_result"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.3"
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/white"
+        android:fillViewport="false"
         android:overScrollMode="never"
-        android:scrollbarSize="1px"
-        android:scrollbarStyle="insideOverlay"
-        android:scrollbars="horizontal">
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <EditText
             android:id="@+id/calculation_in_text"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:background="@null"
-            android:gravity="top|right|center_vertical|center_horizontal|center|end"
+            android:background="@android:color/transparent"
             android:inputType="textNoSuggestions"
             android:maxLines="1"
             android:textColor="@android:color/black"

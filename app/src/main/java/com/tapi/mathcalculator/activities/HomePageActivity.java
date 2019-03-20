@@ -39,10 +39,7 @@ public class HomePageActivity extends AppCompatActivity implements ViewPager.OnP
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow();
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         setContentView(R.layout.home_page_activity);
         initView();
         setClickView();
@@ -136,7 +133,7 @@ public class HomePageActivity extends AppCompatActivity implements ViewPager.OnP
     @Override
     public void onPageSelected(int i) {
         if (!TextUtils.isEmpty(adapter.getPageTitle(i))) {
-            homePageToolbarView.setmTitlePage(String.valueOf(adapter.getPageTitle(i)));
+            homePageToolbarView.setmTitlePage(String.valueOf(adapter.getPageTitle(i))+"⁻¹");
         }
 
     }

@@ -248,7 +248,7 @@
 
                 <com.tapi.mathcalculator.ui.keyboard.KeyItemView
                     android:id="@+id/kb_back"
-                    style="@style/keyboard_item_number" />
+                    style="@style/keyboard_item_char" />
             </FrameLayout>
 
             <FrameLayout

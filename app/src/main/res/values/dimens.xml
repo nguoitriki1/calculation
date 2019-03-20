@@ -8,7 +8,7 @@
     <dimen name="text_size_menu_drawer">15sp</dimen>
     <dimen name="size_button_grid">65dp</dimen>
     <dimen name="size_text_grid">20sp</dimen>
-    <dimen name="size_text_result">80sp</dimen>
+    <dimen name="size_text_result">75sp</dimen>
     <dimen name="calculation_in_text_size">33sp</dimen>
     <dimen name="keyboard_item_text_size">30.0sp</dimen>
     <dimen name="keyboard_item_text_size_min">20.0sp</dimen>
