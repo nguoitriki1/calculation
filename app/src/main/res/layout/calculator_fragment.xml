@@ -1,24 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/calculation_result_view"
-        layout="@layout/calculation_result_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="16.0dip"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16.0dip"
-        android:layout_weight="1.5"/>
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <include
-        android:id="@+id/calculator_keyboard_layout"
-        layout="@layout/calculator_keyboard_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"/>
-</LinearLayout>
+        <include
+            android:id="@+id/calculation_result_view"
+            layout="@layout/calculation_result_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16.0dip"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16.0dip"
+            android:layout_weight="1.5" />
+
+        <include
+            android:id="@+id/calculator_keyboard_layout"
+            layout="@layout/calculator_keyboard_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="30dp"
+        android:layout_height="200dp"
+        android:background="@drawable/tutorial_calculator_gradient_bg"
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view5" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/tutorial_calculator_view_ripper"
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintStart_toStartOf="@+id/view6" />
+</android.support.constraint.ConstraintLayout>

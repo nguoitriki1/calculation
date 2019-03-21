@@ -1,6 +1,8 @@
 package com.tapi.mathcalculator.function.calculator;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,17 +12,20 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
 import com.tapi.mathcalculator.R;
+import com.tapi.mathcalculator.activities.HomePageViewModel;
+import com.tapi.mathcalculator.helpler.PreferenceHelper;
 import com.tapi.mathcalculator.ui.calculator.CalculationResultView;
 import com.tapi.mathcalculator.ui.keyboard.IKeyBoard;
 import com.tapi.mathcalculator.ui.keyboard.ScienceKeyBoardView;
+import com.tapi.mathcalculator.utils.UtilsString;
 
 public class CalculatorFragment extends Fragment {
     private ScienceKeyBoardView mKeyBoard;
     private CalculationResultView mResultView;
+    private HomePageViewModel homePageViewModel;
+    private View mTutorialCalculatorDot, mTutorialCalculatorBg;
 
     @Nullable
     @Override
@@ -30,8 +35,28 @@ public class CalculatorFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        if (getActivity() != null)
+            homePageViewModel = ViewModelProviders.of(getActivity()).get(HomePageViewModel.class);
+        funfindViewById(view);
+        checkTutorialCalculator();
+        initView();
+    }
+
+    private void checkTutorialCalculator() {
+        boolean isFirtsLauncherCalculator = PreferenceHelper.get().getBoolean(PreferenceHelper.IS_FIRTS_LAUNCHER_CALCULATOR, false);
+        if (!isFirtsLauncherCalculator) {
+            showTutorial();
+        }
+    }
+
+    private void funfindViewById(View view) {
         mKeyBoard = view.findViewById(R.id.calculator_keyboard_layout);
         mResultView = view.findViewById(R.id.calculation_result_view);
+        mTutorialCalculatorDot = view.findViewById(R.id.view5);
+        mTutorialCalculatorBg = view.findViewById(R.id.view6);
+    }
+
+    private void initView() {
         mResultView.setmOutText("0");
         mResultView.setOnInTextChangeLister(new CalculationResultView.OnInTextChangeLister() {
             @Override
@@ -75,82 +100,6 @@ public class CalculatorFragment extends Fragment {
                         mResultView.removeAllKey();
                         mKeyBoard.replaceKeyBackByKey(IKeyBoard.Key.back);
                         break;
-                    case open:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case sin:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case cos:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case tan:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case asin:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case acos:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case atan:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case pi:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case x_1:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case x2:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case x3:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case xn:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case log:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case lg:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case ln:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case e:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case gen3:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case gen:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
-                    case un:
-                        mKeyBoard.scrollView(true);
-                        mResultView.addKey(key);
-                        break;
                     default:
                         mResultView.addKey(key);
                         break;
@@ -166,5 +115,18 @@ public class CalculatorFragment extends Fragment {
                 }
             }
         });
+        mKeyBoard.setOnKeyboardScrollDownListener(new ScienceKeyBoardView.OnKeyboardScrollDownListener() {
+            @Override
+            public void onKeyboardScrollDownListener(boolean isDown) {
+                if (isDown) {
+                    PreferenceHelper.get().putBoolean(PreferenceHelper.IS_FIRTS_LAUNCHER_CALCULATOR, true);
+                    homePageViewModel.endAnimationTutorialCalculator(getActivity(), mTutorialCalculatorDot, mTutorialCalculatorBg);
+                }
+            }
+        });
+    }
+
+    public void showTutorial() {
+        homePageViewModel.startAnimationTutorialCalculator(getActivity(), mTutorialCalculatorDot, mTutorialCalculatorBg);
     }
 }

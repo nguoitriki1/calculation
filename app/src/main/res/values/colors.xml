@@ -6,7 +6,7 @@
     <color name="colorlightGray">#F5F5F5</color>
     <color name="colorOrange">#ffac92</color>
     <color name="colorOrangeDark">#D18D1D</color>
-    <color name="colorPink">#A8FF5F20</color>
+    <color name="colorPink">#80ff0125</color>
     <color name="colorTrasnGray">#5E000000</color>
     <color name="colorGraySplashText">#636363</color>
     <color name="colorSwitchOff">@color/colorSwitchOn</color>
@@ -14,4 +14,5 @@
     <color name="setting_switch_thumb_stroke">#ff363636</color>
     <color name="setting_switch_thumb_on">#edfe0e2b</color>
     <color name="colorEquationDialogItemBg">#F3EDED</color>
+    <color name="colorBlack">#363636</color>
 </resources>

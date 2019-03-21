@@ -45,7 +45,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -124,7 +124,7 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
@@ -148,7 +148,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
         <TextView
-            android:id="@+id/dialog_button_igetit"
+            android:id="@+id/equation_dialog_button_igetit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"

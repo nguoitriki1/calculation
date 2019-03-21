@@ -17,4 +17,5 @@
     <dimen name="setting_switch_bg_w">27dp</dimen>
     <dimen name="setting_switch_bg_stroke">4dp</dimen>
     <dimen name="setting_switch_thumb_stroke">2dp</dimen>
+    <dimen name="nav_menu_item_size">50dp</dimen>
 </resources>

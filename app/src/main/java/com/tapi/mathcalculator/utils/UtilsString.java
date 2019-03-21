@@ -10,6 +10,4 @@ public class UtilsString {
     public static final int STYLE_WEIGHT_LB = 3;
     public static final int STYLE_WEIGHT_SBLT = 4;
     public static final String SHARE_PREFENT_NAME = "CalculatorShareprefent";
-
-    public static final String IS_FIRTS_LAUNCHER_EQUATION = "EquationFistLauncher";
 }

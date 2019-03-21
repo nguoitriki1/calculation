@@ -12,6 +12,7 @@ import com.tapi.mathcalculator.R;
 
 public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
     protected OnKeyboardOnClickListener mOnKeyboardOnClickListener;
+    protected OnKeyboardScrollDownListener onKeyboardScrollDownListener;
     private int mAllChildHeight;
 
     public ScienceKeyBoardView(Context context) {
@@ -28,6 +29,10 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
 
     public void setOnKeyboardOnClickListener(OnKeyboardOnClickListener mOnKeyboardOnClickListener) {
         this.mOnKeyboardOnClickListener = mOnKeyboardOnClickListener;
+    }
+
+    public void setOnKeyboardScrollDownListener(OnKeyboardScrollDownListener onKeyboardScrollDownListener) {
+        this.onKeyboardScrollDownListener = onKeyboardScrollDownListener;
     }
 
     @Override
@@ -83,9 +88,10 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
         keyItem.setOnClickListener(this);
         keyItem.setOnLongClickListener(this);
     }
-    public void replaceKeyBackByKey(Key key){
+
+    public void replaceKeyBackByKey(Key key) {
         IKeyItem keyItem = (IKeyItem) findViewById(R.id.kb_back);
-        switch (key){
+        switch (key) {
             case back:
                 keyItem.setKey(Key.back);
                 keyItem.setOnClickListener(this);
@@ -97,6 +103,12 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
                 keyItem.setOnLongClickListener(this);
                 break;
         }
+    }
+    public void changeKeyboardInEquationScreen(){
+        IKeyItem kbpercent = (IKeyItem) findViewById(R.id.kb_percent);
+        IKeyItem kbbracketsl = (IKeyItem) findViewById(R.id.kb_brackets_l);
+        IKeyItem kbbracketsr = (IKeyItem) findViewById(R.id.kb_brackets_r);
+        IKeyItem kb_percent = (IKeyItem) findViewById(R.id.kb_percent);
     }
 
     @Override
@@ -112,8 +124,17 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
     public void onClick(View v) {
         if (v instanceof IKeyItem) {
             Key key = ((IKeyItem) v).getKey();
-            if (mOnKeyboardOnClickListener != null)
+            if (mOnKeyboardOnClickListener != null) {
                 mOnKeyboardOnClickListener.onKeyEventClick(v, Event.click, key);
+            }
+            if (key == Key.open || key == Key.sin || key == Key.cos || key == Key.tan
+                    || key == Key.asin || key == Key.acos || key == Key.atan || key == Key.pi
+                    || key == Key.x_1 || key == Key.x2 || key == Key.x3 || key == Key.xn || key == Key.log
+                    || key == Key.ln || key == Key.lg || key == Key.e || key == Key.gen3 || key == Key.gen
+                    || key == Key.un) {
+                scrollView(true);
+            }
+
         }
     }
 
@@ -143,12 +164,13 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
     }
 
     public void scrollView(boolean z) {
-        if(z){
+        if (z) {
             fullScroll(FOCUS_UP);
-        }else {
+        } else {
             int scrollY = getScrollY();
-            if (scrollY > getHeight()/2) {
+            if (scrollY > getHeight() / 2) {
                 fullScroll(FOCUS_DOWN);
+                onKeyboardScrollDownListener.onKeyboardScrollDownListener(true);
             } else {
                 fullScroll(FOCUS_UP);
             }
@@ -157,7 +179,7 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
 
     public void replaceKeyRadByKey(Key key) {
         IKeyItem keyItem = (IKeyItem) findViewById(R.id.kb_deg_rad);
-        switch (key){
+        switch (key) {
             case deg:
                 keyItem.setKey(Key.rad);
                 keyItem.setOnClickListener(this);
@@ -169,5 +191,8 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
                 keyItem.setOnLongClickListener(this);
                 break;
         }
+    }
+    public interface OnKeyboardScrollDownListener {
+        void onKeyboardScrollDownListener(boolean isDown);
     }
 }

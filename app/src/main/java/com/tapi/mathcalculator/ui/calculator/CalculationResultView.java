@@ -66,25 +66,25 @@ public class CalculationResultView extends ConstraintLayout {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (mOutText.getText().toString().length() > 15) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 54);
-                } else if (mOutText.getText().toString().length() > 14) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 55);
+                if (mOutText.getText().toString().length() > 14) {
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 38);
                 } else if (mOutText.getText().toString().length() > 13) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 56);
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
                 } else if (mOutText.getText().toString().length() > 12) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 57);
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 44);
                 } else if (mOutText.getText().toString().length() > 11) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 58);
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                 } else if (mOutText.getText().toString().length() > 10) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 59);
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 52);
                 } else if (mOutText.getText().toString().length() > 9) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 60);
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 58);
                 } else if (mOutText.getText().toString().length() > 8) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 65);
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 64);
                 } else if (mOutText.getText().toString().length() > 7) {
-                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 70);
-                } else if (mOutText.getText().toString().length() == 1) {
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 71);
+                } else if (mOutText.getText().toString().length() > 6) {
+                    mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 76);
+                } else if (mOutText.getText().toString().length() < 7) {
                     mOutText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 80);
                 }
             }
@@ -117,48 +117,6 @@ public class CalculationResultView extends ConstraintLayout {
             }
         });
     }
-//    percent(Utils.charsToString('%')),
-//    brackets_l(Utils.charsToString('(')),
-//    brackets_r(Utils.charsToString(')')),
-//    division(Utils.charsToString((char) 247)),
-//    minus(Utils.charsToString('-')),
-//    multiply(Utils.charsToString((char) 215)),
-//    plus(Utils.charsToString('+')),
-//    equal(Utils.charsToString('=')),
-//    point(Utils.charsToString('.')),
-//    back(R.drawable.keyboard_remove_icon),
-//    clr("CLR"),
-//    num_0("0"),
-//    num_1("1"),
-//    num_2("2"),
-//    num_3("3"),
-//    num_4("4"),
-//    num_5("5"),
-//    num_6("6"),
-//    num_7("7"),
-//    num_8("8"),
-//    num_9("9"),
-//    log("log"),
-//    x2("X²"),
-//    xn("x^"),
-//    gen(Utils.charsToString((char) 8730)),
-//    un("n!"),
-//    rad("RAD"),
-//    deg("DEG"),
-//    sin("sin"),
-//    cos("cos"),
-//    tan("tan"),
-//    open(R.drawable.keyboard_upglide_down_icon),
-//    asin("asin"),
-//    acos("acos"),
-//    atan("atan"),
-//    ln("ln("),
-//    lg("lg("),
-//    x3("X³"),
-//    x_1("X⁻¹"),
-//    gen3("³√"),
-//    pi(Utils.charsToString((char) 960)),
-//    e(Utils.charsToString('e')),
 
     public void addKey(IKeyBoard.Key key) {
         int selectionEnd = mInText.getSelectionEnd();
@@ -455,7 +413,7 @@ public class CalculationResultView extends ConstraintLayout {
                                 mInText.setSelection(selectionStart - 3);
                             } else {
                                 String substring3 = mInText.getText().toString().substring(selectionStart - 2, selectionStart);
-                                if (substring3.equals("⁻¹")) {
+                                if (substring3.equals("⁻¹") || substring3.equals("³√")) {
                                     mInText.setText((Spanned) mInText.getText().delete(selectionStart - 2, selectionStart));
                                     mInText.setSelection(selectionStart - 2);
                                 } else {
@@ -466,7 +424,7 @@ public class CalculationResultView extends ConstraintLayout {
                         } catch (Exception e2) {
                             try {
                                 String substring3 = mInText.getText().toString().substring(selectionStart - 2, selectionStart);
-                                if (substring3.equals("⁻¹")) {
+                                if (substring3.equals("⁻¹") || substring3.equals("³√")) {
                                     mInText.setText((Spanned) mInText.getText().delete(selectionStart - 2, selectionStart));
                                     mInText.setSelection(selectionStart - 2);
                                 } else {

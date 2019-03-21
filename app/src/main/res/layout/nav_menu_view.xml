@@ -90,7 +90,7 @@
             <LinearLayout
                 android:id="@+id/layout_item_calculation"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -122,7 +122,7 @@
             <LinearLayout
                 android:id="@+id/layout_item_equation"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -155,7 +155,7 @@
             <LinearLayout
                 android:id="@+id/layout_item_photo"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -188,7 +188,7 @@
             <LinearLayout
                 android:id="@+id/layout_item_bmi"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -236,7 +236,7 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/layout_item_floating"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -291,7 +291,7 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/layout_item_vibrate"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -346,7 +346,7 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/layout_item_sound"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -400,7 +400,7 @@
             <LinearLayout
                 android:id="@+id/layout_item_privacy_policy"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -408,7 +408,6 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_item_rate_us">
 
@@ -433,7 +432,7 @@
             <LinearLayout
                 android:id="@+id/layout_item_history"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
@@ -466,7 +465,7 @@
             <LinearLayout
                 android:id="@+id/layout_item_rate_us"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/nav_menu_item_size"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/nav_button_selector"
                 android:clickable="true"
