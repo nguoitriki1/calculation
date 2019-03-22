@@ -95,6 +95,7 @@ public class CalculatorFragment extends Fragment {
                     case equal:
                         mKeyBoard.replaceKeyBackByKey(IKeyBoard.Key.clr);
                         mResultView.animationResultTxtWhenClickEqual();
+                        mResultView.inputDbHistory();
                         break;
                     case clr:
                         mResultView.removeAllKey();
@@ -112,6 +113,9 @@ public class CalculatorFragment extends Fragment {
                     case back:
                         mResultView.removeAllKey();
                         break;
+                    default:
+                        view.performClick();
+                        break;
                 }
             }
         });
@@ -125,7 +129,6 @@ public class CalculatorFragment extends Fragment {
             }
         });
     }
-
     public void showTutorial() {
         homePageViewModel.startAnimationTutorialCalculator(getActivity(), mTutorialCalculatorDot, mTutorialCalculatorBg);
     }

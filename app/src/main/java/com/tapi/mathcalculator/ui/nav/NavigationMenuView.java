@@ -1,19 +1,13 @@
 package com.tapi.mathcalculator.ui.nav;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.tapi.mathcalculator.R;
-import com.tapi.mathcalculator.activities.BmiActivity;
-import com.tapi.mathcalculator.activities.HomePageActivity;
 
 public class NavigationMenuView extends ConstraintLayout implements View.OnClickListener {
     private LinearLayout mBtnCalculator,mBtnEquation,mBtnPhoto,mBtnBMI,mBtnHistory,mBtnRateUs,mBtnPrivacyPolicy;

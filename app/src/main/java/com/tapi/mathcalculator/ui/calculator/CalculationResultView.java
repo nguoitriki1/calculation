@@ -14,23 +14,34 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.tapi.mathcalculator.R;
+import com.tapi.mathcalculator.database.AppDatabase;
+import com.tapi.mathcalculator.database.OperationDb;
+import com.tapi.mathcalculator.model.HistoryModel;
 import com.tapi.mathcalculator.ui.keyboard.IKeyBoard;
 import com.tapi.mathcalculator.utils.Utils;
+
+import java.util.Calendar;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class CalculationResultView extends ConstraintLayout {
+    private OperationDb operationDb;
     private TextView mOutText;
     private EditText mInText;
+    private TextSwitcher textSwitcher;
     private OnInTextChangeLister onInTextChangeLister;
+    private Calendar calendar = Calendar.getInstance();
 
     public CalculationResultView(Context context) {
         super(context);
@@ -103,17 +114,6 @@ public class CalculationResultView extends ConstraintLayout {
             @Override
             public void afterTextChanged(Editable s) {
                 onInTextChangeLister.onAfterInTextChangeListner(s);
-            }
-        });
-        mInText.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                try {
-                    mInText.setSelection(mInText.getSelectionStart(), mInText.getSelectionStart() + 1);
-                } catch (Exception e) {
-
-                }
-                return true;
             }
         });
     }
@@ -330,8 +330,8 @@ public class CalculationResultView extends ConstraintLayout {
                         }
                     }
                 }
-            } else if ( outText.contains("²") ||  outText.contains("³")
-                    || outText.contains("¹") ||  outText.contains("^")
+            } else if (outText.contains("²") || outText.contains("³")
+                    || outText.contains("¹") || outText.contains("^")
                     || outText.contains(IKeyBoard.Key.gen3.outText)
                     || outText.contains("!")) {
                 if (selectionStart > 0) {
@@ -453,6 +453,30 @@ public class CalculationResultView extends ConstraintLayout {
         mInText.setText("");
     }
 
+    public void inputDbHistory() {
+        if (!TextUtils.isEmpty(mInText.getText().toString())) {
+            operationDb = new OperationDb(getContext());
+            operationDb.open();
+            HistoryModel historyModel = new HistoryModel();
+            historyModel.setTxtResult(mOutText.getText().toString());
+            historyModel.setEdtResult(mInText.getText().toString());
+            historyModel.setHisDate(twoDrigitNumber(calendar.get(Calendar.DAY_OF_MONTH)) + "/" +
+                    twoDrigitNumber(calendar.get(Calendar.MONTH)) + "/" +
+                    twoDrigitNumber(calendar.get(Calendar.YEAR)));
+            operationDb.addHistory(historyModel);
+            operationDb.close();
+        }
+    }
+
+    private String twoDrigitNumber(int number) {
+        String s = String.valueOf(number);
+        if (s.length() == 1){
+            return "0"+s;
+        }else {
+            return s;
+        }
+    }
+
     public interface OnInTextChangeLister {
         void onAfterInTextChangeListner(Editable s);
 
@@ -470,7 +494,6 @@ public class CalculationResultView extends ConstraintLayout {
         slide_out.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
             }
 
             @Override
@@ -487,5 +510,4 @@ public class CalculationResultView extends ConstraintLayout {
 // Start animation
         mOutText.startAnimation(slide_out);
     }
-
 }
