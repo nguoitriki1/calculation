@@ -1,8 +1,6 @@
 package com.tapi.mathcalculator.function.calculator;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,11 +16,10 @@ import com.tapi.mathcalculator.activities.HomePageViewModel;
 import com.tapi.mathcalculator.helpler.PreferenceHelper;
 import com.tapi.mathcalculator.ui.calculator.CalculationResultView;
 import com.tapi.mathcalculator.ui.keyboard.IKeyBoard;
-import com.tapi.mathcalculator.ui.keyboard.ScienceKeyBoardView;
-import com.tapi.mathcalculator.utils.UtilsString;
+import com.tapi.mathcalculator.ui.keyboard.CalculatorKeyBoardView;
 
 public class CalculatorFragment extends Fragment {
-    private ScienceKeyBoardView mKeyBoard;
+    private CalculatorKeyBoardView mKeyBoard;
     private CalculationResultView mResultView;
     private HomePageViewModel homePageViewModel;
     private View mTutorialCalculatorDot, mTutorialCalculatorBg;
@@ -119,7 +116,7 @@ public class CalculatorFragment extends Fragment {
                 }
             }
         });
-        mKeyBoard.setOnKeyboardScrollDownListener(new ScienceKeyBoardView.OnKeyboardScrollDownListener() {
+        mKeyBoard.setOnKeyboardScrollDownListener(new CalculatorKeyBoardView.OnKeyboardScrollDownListener() {
             @Override
             public void onKeyboardScrollDownListener(boolean isDown) {
                 if (isDown) {

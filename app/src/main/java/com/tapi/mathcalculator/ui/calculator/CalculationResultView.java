@@ -125,17 +125,7 @@ public class CalculationResultView extends ConstraintLayout {
         switch (key) {
             case point:
                 // them so 0 khi them dau .
-                if (selectionStart == 0) {
-                    insertIntext("0" + outText, selectionStart, selectionEnd);
-                } else if (selectionStart > 0 && selectionStart < mInText.length()) {
-                    if (!checkIsNumber(mInText.getText().charAt(selectionEnd - 1))) {
-                        insertIntext("0" + outText, selectionStart, selectionEnd);
-                    } else {
-                        insertIntext(outText, selectionStart, selectionEnd);
-                    }
-                } else {
-                    insertIntext(outText, selectionStart, selectionEnd);
-                }
+                insertPoint(outText,selectionStart,selectionEnd);
                 break;
             case x_1:
                 insertIntext("⁻¹", selectionStart, selectionEnd);
@@ -197,6 +187,47 @@ public class CalculationResultView extends ConstraintLayout {
 
         }
     }
+    private void insertPoint(String outText, int selectionStart, int selectionEnd) {
+        // them so 0 khi them dau .
+        if (selectionStart == 0) {
+            insertIntext("0" + outText, selectionStart, selectionEnd);
+        } else {
+            if (mInText.getText().toString().substring(0, selectionStart).contains(".")) {
+                int i1 = mInText.getText().toString().lastIndexOf(".");
+                if (i1 != 0) {
+                    if (mInText.getText().toString().substring(i1, selectionStart).contains("+") ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains("-") ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains(Utils.charsToString((char) 215)) ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains(")") ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains("(") ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains("e") ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains("³√") ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains("%") ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains("^") ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains(Utils.charsToString((char) 960)) ||
+                            mInText.getText().toString().substring(i1, selectionStart).contains(Utils.charsToString((char) 247)))  {
+                        if (Utils.checkIsNumber(mInText.getText().charAt(selectionStart - 1))) {
+                            insertIntext(outText, selectionStart, selectionEnd);
+                        } else {
+                            insertIntext("0" + outText, selectionStart, selectionEnd);
+                        }
+                    }
+                } else {
+                    if (!Utils.checkIsNumber(mInText.getText().charAt(selectionEnd - 1))) {
+                        insertIntext("0" + outText, selectionStart, selectionEnd);
+                    } else {
+                        insertIntext(outText, selectionStart, selectionEnd);
+                    }
+                }
+            } else {
+                if (!Utils.checkIsNumber(mInText.getText().charAt(selectionEnd - 1))) {
+                    insertIntext("0" + outText, selectionStart, selectionEnd);
+                } else {
+                    insertIntext(outText, selectionStart, selectionEnd);
+                }
+            }
+        }
+    }
 
     private void insertOperator(String outText, int selectionStart, int selectionEnd) {
         //selector == 0 thi insert no
@@ -218,7 +249,7 @@ public class CalculationResultView extends ConstraintLayout {
                 } else if (selectionStart == 1) {
                     char c = mInText.getText().charAt(selectionStart - 1);
                     if (outText.equals("-")) {
-                        if (checkIsOperator(c)) {
+                        if (Utils.checkIsOperator(mInText.length(),c)) {
                             if (c == ((char) 247) || c == ((char) 215)) {
                                 insertIntext(outText, selectionStart, selectionEnd);
                             } else {
@@ -228,7 +259,7 @@ public class CalculationResultView extends ConstraintLayout {
                             insertIntext(outText, selectionStart, selectionEnd);
                         }
                     } else {
-                        if (checkIsOperator(c)) {
+                        if (Utils.checkIsOperator(mInText.length(),c)) {
                             replaceInText(outText, selectionStart, selectionEnd);
                         } else {
                             insertIntext(outText, selectionStart, selectionEnd);
@@ -237,9 +268,9 @@ public class CalculationResultView extends ConstraintLayout {
                 } else {
                     char c = mInText.getText().charAt(selectionStart - 1);
                     char d = mInText.getText().charAt(selectionStart - 2);
-                    if (checkIsOperator(c)) {
+                    if (Utils.checkIsOperator(mInText.length(),c)) {
                         if (c == '-') {
-                            if (checkIsOperator(d)) {
+                            if (Utils.checkIsOperator(mInText.length(),d)) {
                                 if (!outText.equals("-")) {
                                     replaceInTextTwoChar(outText, selectionStart, selectionEnd);
                                 }
@@ -248,7 +279,7 @@ public class CalculationResultView extends ConstraintLayout {
                             }
                         } else {
                             if (outText.equals("-")) {
-                                if (checkIsOperator(c)) {
+                                if (Utils.checkIsOperator(mInText.length(),c)) {
                                     if (c == ((char) 247) || c == ((char) 215)) {
                                         insertIntext(outText, selectionStart, selectionEnd);
                                     } else {
@@ -258,7 +289,7 @@ public class CalculationResultView extends ConstraintLayout {
                                     insertIntext(outText, selectionStart, selectionEnd);
                                 }
                             } else {
-                                if (checkIsOperator(c)) {
+                                if (Utils.checkIsOperator(mInText.length(),c)) {
                                     replaceInText(outText, selectionStart, selectionEnd);
                                 } else {
                                     insertIntext(outText, selectionStart, selectionEnd);
@@ -278,43 +309,24 @@ public class CalculationResultView extends ConstraintLayout {
     }
 
     private void replaceInTextTwoChar(String outText, int selectionStart, int selectionEnd) {
-        StringBuffer buffer = new StringBuffer(mInText.getText());
+        StringBuilder buffer = new StringBuilder(mInText.getText());
         buffer.replace(selectionStart - 2, selectionStart, outText);
         mInText.setText(buffer.toString());
         mInText.setSelection(selectionStart - 1);
     }
 
     private void replaceInText(String outText, int selectionStart, int selectionEnd) {
-        StringBuffer buffer = new StringBuffer(mInText.getText());
+        StringBuilder buffer = new StringBuilder(mInText.getText());
         buffer.replace(selectionStart - 1, selectionStart, outText);
         mInText.setText(buffer.toString());
         mInText.setSelection(selectionStart);
     }
 
-    private boolean checkIsOperator(char charAt) {
-        if (mInText.length() > 0) {
-            if (charAt == ((char) 247) || charAt == '+' || charAt == '-' || charAt == ((char) 215)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    private boolean checkIsNumber(char charAt) {
-        if (charAt == '0' || charAt == '1' || charAt == '2' || charAt == '3' || charAt == '4' || charAt == '5' || charAt == '6' || charAt == '7' || charAt == '8' || charAt == '9') {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     private void insertIntext(String outText, int selectionStart, int selectionEnd) {
         if (outText.length() > 0) {
-            StringBuffer buffer = new StringBuffer(mInText.getText());
-            if (checkIsNumber(outText.charAt(0)) || outText.charAt(0) == '.'
+            StringBuilder buffer = new StringBuilder(mInText.getText());
+            if (Utils.checkIsNumber(outText.charAt(0)) || outText.charAt(0) == '.'
                     || outText.contains(IKeyBoard.Key.sin.outText) || outText.contains(IKeyBoard.Key.cos.outText)
                     || outText.contains(IKeyBoard.Key.tan.outText) || outText.contains(IKeyBoard.Key.pi.outText)
                     || outText.contains(IKeyBoard.Key.log.outText) || outText.contains(IKeyBoard.Key.lg.outText)

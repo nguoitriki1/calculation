@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.tapi.mathcalculator.ui.keyboard.ScienceKeyBoardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.tapi.mathcalculator.ui.keyboard.CalculatorKeyBoardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/keyboard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -237,7 +237,7 @@
                 android:layout_weight="1">
 
                 <com.tapi.mathcalculator.ui.keyboard.KeyItemView
-                    android:id="@+id/kb_point"
+                    android:id="@+id/kb_equal"
                     style="@style/keyboard_item_number" />
             </FrameLayout>
 
@@ -257,7 +257,7 @@
                 android:layout_weight="1">
 
                 <com.tapi.mathcalculator.ui.keyboard.KeyItemView
-                    android:id="@+id/kb_equal"
+                    android:id="@+id/kb_point"
                     style="@style/keyboard_item_char"
                     android:background="@drawable/key_equals_sign_selector"/>
             </FrameLayout>
@@ -508,4 +508,4 @@
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>
-</com.tapi.mathcalculator.ui.keyboard.ScienceKeyBoardView>
+</com.tapi.mathcalculator.ui.keyboard.CalculatorKeyBoardView>

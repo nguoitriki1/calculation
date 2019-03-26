@@ -25,6 +25,9 @@
         <activity
             android:name=".activities.HomePageActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities.BmiActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>

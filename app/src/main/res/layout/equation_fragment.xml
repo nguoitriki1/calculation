@@ -6,64 +6,384 @@
     android:layout_height="fill_parent"
     android:background="@android:color/white"
     android:orientation="vertical">
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
-        android:layout_height="0dp"
-        android:layout_weight="1.5">
 
-        <EditText
-            android:id="@+id/editText"
+    <com.tapi.mathcalculator.ui.equation.EquationResultView
+        android:id="@+id/equation_result_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:visibility="invisible"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="16dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket">
+
+            <EditText
+                android:id="@+id/equation_edt_result_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/equation_shape_edt"
+                android:hint="@string/such_as_9x_18"
+                android:inputType="number"
+                android:minWidth="342dp"
+                android:padding="8dp"
+                android:textColor="@color/colorOrange"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/keyboard_item_text_size_medium" />
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="8dp"
+            android:scrollbars="none"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket">
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:textColor="@color/colorPink"
-            android:textSize="@dimen/keyboard_item_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/editText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/equation_edt_result_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/equation_shape_edt"
+                android:hint="@string/such_as_2y_16"
+                android:inputType="number"
+                android:minWidth="342dp"
+                android:overScrollMode="never"
+                android:padding="8dp"
+                android:textColor="@color/colorOrange"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/keyboard_item_text_size_medium"
+                android:visibility="invisible" />
+        </HorizontalScrollView>
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/equation_img_bracket"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="0dp"
+            android:paddingRight="16dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/editText"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/ico_bracket" />
-    </android.support.constraint.ConstraintLayout>
+    </com.tapi.mathcalculator.ui.equation.EquationResultView>
 
-    <include
-        android:id="@+id/calculator_keyboard_layout"
-        layout="@layout/calculator_keyboard_layout"
-        android:layout_width="fill_parent"
+    <com.tapi.mathcalculator.ui.keyboard.EquationKeyBoardView
+        android:id="@+id/equation_keyboard_layout"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"/>
+        android:layout_weight="3">
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_enter"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_division"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_ab"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_division"
+            style="@style/keyboard_item_char"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            android:textColor="@color/colorOrange"
+            app:layout_constraintBottom_toTopOf="@+id/kb_multiply"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_equal"
+            app:layout_constraintTop_toBottomOf="@+id/kb_enter" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_multiply"
+            style="@style/keyboard_item_char"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            android:textColor="@color/colorOrange"
+            app:layout_constraintBottom_toTopOf="@+id/kb_minus"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_9"
+            app:layout_constraintTop_toBottomOf="@+id/kb_division" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_minus"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            style="@style/keyboard_item_char"
+            android:textColor="@color/colorOrange"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_plus"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_6"
+            app:layout_constraintTop_toBottomOf="@+id/kb_multiply" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_plus"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            style="@style/keyboard_item_char"
+            android:textColor="@color/colorOrange"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_solve"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_3"
+            app:layout_constraintTop_toBottomOf="@+id/kb_minus" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_solve"
+            style="@style/keyboard_item_char"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            android:background="@drawable/key_equals_sign_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_back"
+            app:layout_constraintTop_toBottomOf="@+id/kb_plus" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_ab"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_equal"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_enter"
+            app:layout_constraintStart_toEndOf="@+id/kb_y"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_y"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_brackets_r"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_ab"
+            app:layout_constraintStart_toEndOf="@+id/kb_x"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_x"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_brackets_l"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_y"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_equal"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_9"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_division"
+            app:layout_constraintStart_toEndOf="@+id/kb_brackets_r"
+            app:layout_constraintTop_toBottomOf="@+id/kb_ab" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_brackets_r"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_8"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_equal"
+            app:layout_constraintStart_toEndOf="@+id/kb_brackets_l"
+            app:layout_constraintTop_toBottomOf="@+id/kb_y" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_brackets_l"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_7"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_brackets_r"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kb_x" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_9"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_6"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_multiply"
+            app:layout_constraintStart_toEndOf="@+id/kb_8"
+            app:layout_constraintTop_toBottomOf="@+id/kb_equal" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_8"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_5"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_9"
+            app:layout_constraintStart_toEndOf="@+id/kb_7"
+            app:layout_constraintTop_toBottomOf="@+id/kb_brackets_r" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_7"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_4"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kb_brackets_l" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_6"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_3"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_minus"
+            app:layout_constraintStart_toEndOf="@+id/kb_5"
+            app:layout_constraintTop_toBottomOf="@+id/kb_9" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_5"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_2"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_6"
+            app:layout_constraintStart_toEndOf="@+id/kb_4"
+            app:layout_constraintTop_toBottomOf="@+id/kb_8" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_4"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kb_7" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_3"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_back"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_plus"
+            app:layout_constraintStart_toEndOf="@+id/kb_2"
+            app:layout_constraintTop_toBottomOf="@+id/kb_6" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_2"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_point"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_3"
+            app:layout_constraintStart_toEndOf="@+id/kb_1"
+            app:layout_constraintTop_toBottomOf="@+id/kb_5" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_point"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_back"
+            app:layout_constraintStart_toEndOf="@+id/kb_0"
+            app:layout_constraintTop_toBottomOf="@+id/kb_2" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_back"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_solve"
+            app:layout_constraintStart_toEndOf="@+id/kb_point"
+            app:layout_constraintTop_toBottomOf="@+id/kb_3" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_1"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toTopOf="@+id/kb_0"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kb_4" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_0"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_point"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kb_1" />
+    </com.tapi.mathcalculator.ui.keyboard.EquationKeyBoardView>
 </LinearLayout>

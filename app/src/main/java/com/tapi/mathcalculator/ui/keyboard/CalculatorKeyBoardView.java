@@ -10,20 +10,20 @@ import android.widget.ScrollView;
 
 import com.tapi.mathcalculator.R;
 
-public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
+public class CalculatorKeyBoardView extends ScrollView implements IKeyBoard {
     protected OnKeyboardOnClickListener mOnKeyboardOnClickListener;
     protected OnKeyboardScrollDownListener onKeyboardScrollDownListener;
     private int mAllChildHeight;
 
-    public ScienceKeyBoardView(Context context) {
+    public CalculatorKeyBoardView(Context context) {
         super(context);
     }
 
-    public ScienceKeyBoardView(Context context, AttributeSet attrs) {
+    public CalculatorKeyBoardView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ScienceKeyBoardView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CalculatorKeyBoardView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -66,8 +66,8 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
         addKey(R.id.kb_open, Key.open);
         addKey(R.id.kb_percent, Key.percent);
         addKey(R.id.kb_0, Key.num_0);
-        addKey(R.id.kb_point, Key.point);
-        addKey(R.id.kb_equal, Key.equal);
+        addKey(R.id.kb_equal, Key.point);
+        addKey(R.id.kb_point, Key.equal);
         addKey(R.id.kb_asin, Key.asin);
         addKey(R.id.kb_acos, Key.acos);
         addKey(R.id.kb_atan, Key.atan);
@@ -103,12 +103,6 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
                 keyItem.setOnLongClickListener(this);
                 break;
         }
-    }
-    public void changeKeyboardInEquationScreen(){
-        IKeyItem kbpercent = (IKeyItem) findViewById(R.id.kb_percent);
-        IKeyItem kbbracketsl = (IKeyItem) findViewById(R.id.kb_brackets_l);
-        IKeyItem kbbracketsr = (IKeyItem) findViewById(R.id.kb_brackets_r);
-        IKeyItem kb_percent = (IKeyItem) findViewById(R.id.kb_percent);
     }
 
     @Override
@@ -192,6 +186,7 @@ public class ScienceKeyBoardView extends ScrollView implements IKeyBoard {
                 break;
         }
     }
+
     public interface OnKeyboardScrollDownListener {
         void onKeyboardScrollDownListener(boolean isDown);
     }

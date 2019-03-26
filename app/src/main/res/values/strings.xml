@@ -24,4 +24,6 @@
     <string name="pi">π</string>
     <string name="square_root_of_3">³√</string>
     <string name="square_root_of_2">√</string>
+    <string name="such_as_9x_18">Such as 9x=18</string>
+    <string name="such_as_2y_16">Such as 2y=16</string>
 </resources>

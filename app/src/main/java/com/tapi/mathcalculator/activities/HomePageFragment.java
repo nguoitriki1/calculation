@@ -15,17 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.adapter.ViewPagerAdapter;
 import com.tapi.mathcalculator.function.calculator.CalculatorFragment;
-import com.tapi.mathcalculator.function.equation.EquationDialogTutorial;
+import com.tapi.mathcalculator.function.equation.EquationTutorialDialog;
 import com.tapi.mathcalculator.function.equation.EquationFragment;
-import com.tapi.mathcalculator.function.history.HistoryFragmentDialog;
+import com.tapi.mathcalculator.function.history.HistoryFragment;
 import com.tapi.mathcalculator.function.photo.PhotoFragment;
 import com.tapi.mathcalculator.helpler.PreferenceHelper;
 import com.tapi.mathcalculator.ui.nav.NavigationMenuView;
@@ -165,15 +163,15 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
     }
 
     private void showDialogEquationTutorial() {
-        EquationDialogTutorial equationDialog = new EquationDialogTutorial();
+        EquationTutorialDialog equationDialog = new EquationTutorialDialog();
         equationDialog.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
         equationDialog.show(getActivity().getSupportFragmentManager(), UtilsString.TAG_TUTORIAL_EQUATION_DIALOG);
     }
     private void showDialogHistory() {
-        HistoryFragmentDialog historyFragmentDialog = new HistoryFragmentDialog();
+        HistoryFragment historyFragment = new HistoryFragment();
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.window_in_animation,R.anim.window_out_animation, R.anim.window_in_animation,R.anim.window_out_animation);
-        fragmentTransaction.add(R.id.homepage_contaner_fragment,historyFragmentDialog,UtilsString.TAG_HISTORY_FRAGMENT);
+        fragmentTransaction.add(R.id.homepage_contaner_fragment, historyFragment,UtilsString.TAG_HISTORY_FRAGMENT);
         fragmentTransaction.addToBackStack(UtilsString.TAG_HISTORY_FRAGMENT);
         fragmentTransaction.commit();
     }

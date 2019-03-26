@@ -1,6 +1,5 @@
 package com.tapi.mathcalculator.activities;
 
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,8 +7,6 @@ import android.view.WindowManager;
 
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.dialog.ExitDialog;
-import com.tapi.mathcalculator.function.equation.EquationDialogTutorial;
-import com.tapi.mathcalculator.function.history.HistoryFragmentDialog;
 import com.tapi.mathcalculator.utils.UtilsString;
 
 public class HomePageActivity extends AppCompatActivity {

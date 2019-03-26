@@ -25,7 +25,7 @@ import com.tapi.mathcalculator.utils.UtilsString;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoryFragmentDialog extends Fragment implements View.OnClickListener, DialogDeleteAllHistory.RemoveAllHistoryListner {
+public class HistoryFragment extends Fragment implements View.OnClickListener, DialogDeleteAllHistory.RemoveAllHistoryListner {
     private ImageView mBtnDeleteAllHistory, mBtnScrollUpHistory;
     private RecyclerView mRvHistory;
     private List<HistoryModel> historyModelsListData;
