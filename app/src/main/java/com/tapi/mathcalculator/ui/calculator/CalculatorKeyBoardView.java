@@ -1,4 +1,4 @@
-package com.tapi.mathcalculator.ui.keyboard;
+package com.tapi.mathcalculator.ui.calculator;
 
 import android.content.Context;
 import android.support.annotation.IdRes;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 
 import com.tapi.mathcalculator.R;
+import com.tapi.mathcalculator.ui.keyboard.IKeyBoard;
+import com.tapi.mathcalculator.ui.keyboard.IKeyItem;
 
 public class CalculatorKeyBoardView extends ScrollView implements IKeyBoard {
     protected OnKeyboardOnClickListener mOnKeyboardOnClickListener;

@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.adapter.ViewPagerAdapter;
+import com.tapi.mathcalculator.function.bmi.BmiActivity;
 import com.tapi.mathcalculator.function.calculator.CalculatorFragment;
 import com.tapi.mathcalculator.function.equation.EquationTutorialDialog;
 import com.tapi.mathcalculator.function.equation.EquationFragment;
@@ -99,8 +100,8 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
                         mViewPager.setCurrentItem(2);
                         break;
                     case R.id.layout_item_bmi:
-                        startActivity(new Intent(getActivity(), BmiActivity.class));
                         hideDrawerNav();
+                        startActivity(new Intent(getActivity(), BmiActivity.class));
                         break;
                     case R.id.layout_item_floating:
                         navigationMenuView.floattingSwitchClick();

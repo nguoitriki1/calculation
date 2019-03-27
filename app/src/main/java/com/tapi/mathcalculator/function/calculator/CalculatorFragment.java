@@ -16,7 +16,7 @@ import com.tapi.mathcalculator.activities.HomePageViewModel;
 import com.tapi.mathcalculator.helpler.PreferenceHelper;
 import com.tapi.mathcalculator.ui.calculator.CalculationResultView;
 import com.tapi.mathcalculator.ui.keyboard.IKeyBoard;
-import com.tapi.mathcalculator.ui.keyboard.CalculatorKeyBoardView;
+import com.tapi.mathcalculator.ui.calculator.CalculatorKeyBoardView;
 
 public class CalculatorFragment extends Fragment {
     private CalculatorKeyBoardView mKeyBoard;

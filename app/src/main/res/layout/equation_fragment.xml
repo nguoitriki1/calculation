@@ -15,63 +15,45 @@
         android:layout_weight="1.5"
         android:orientation="vertical">
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView3"
+
+        <EditText
+            android:id="@+id/equation_edt_result_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginBottom="16dp"
-            android:overScrollMode="never"
-            android:scrollbars="none"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView4"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/equation_shape_edt"
+            android:hint="@string/such_as_9x_18"
+            android:inputType="number"
+            android:padding="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size_medium"
+            app:layout_constraintBottom_toTopOf="@+id/equation_edt_result_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket">
+            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket" />
 
-            <EditText
-                android:id="@+id/equation_edt_result_1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/equation_shape_edt"
-                android:hint="@string/such_as_9x_18"
-                android:inputType="number"
-                android:minWidth="342dp"
-                android:padding="8dp"
-                android:textColor="@color/colorOrange"
-                android:textColorHint="@color/colorPink"
-                android:textSize="@dimen/keyboard_item_text_size_medium" />
-        </HorizontalScrollView>
-
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView4"
+        <EditText
+            android:id="@+id/equation_edt_result_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
             android:layout_marginBottom="8dp"
-            android:scrollbars="none"
-            android:visibility="visible"
+            android:background="@drawable/equation_shape_edt"
+            android:hint="@string/such_as_2y_16"
+            android:inputType="number"
+            android:overScrollMode="never"
+            android:padding="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size_medium"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket">
-
-            <EditText
-                android:id="@+id/equation_edt_result_2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/equation_shape_edt"
-                android:hint="@string/such_as_2y_16"
-                android:inputType="number"
-                android:minWidth="342dp"
-                android:overScrollMode="never"
-                android:padding="8dp"
-                android:textColor="@color/colorOrange"
-                android:textColorHint="@color/colorPink"
-                android:textSize="@dimen/keyboard_item_text_size_medium"
-                android:visibility="invisible" />
-        </HorizontalScrollView>
+            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket" />
 
         <ImageView
             android:id="@+id/equation_img_bracket"
@@ -87,7 +69,7 @@
             app:srcCompat="@drawable/ico_bracket" />
     </com.tapi.mathcalculator.ui.equation.EquationResultView>
 
-    <com.tapi.mathcalculator.ui.keyboard.EquationKeyBoardView
+    <com.tapi.mathcalculator.ui.equation.EquationKeyBoardView
         android:id="@+id/equation_keyboard_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -133,11 +115,11 @@
 
         <com.tapi.mathcalculator.ui.keyboard.KeyItemView
             android:id="@+id/kb_minus"
+            style="@style/keyboard_item_char"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            style="@style/keyboard_item_char"
-            android:textColor="@color/colorOrange"
             android:layout_margin="@dimen/keyboard_magrin_size"
+            android:textColor="@color/colorOrange"
             app:layout_constraintBottom_toTopOf="@+id/kb_plus"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -146,11 +128,11 @@
 
         <com.tapi.mathcalculator.ui.keyboard.KeyItemView
             android:id="@+id/kb_plus"
+            style="@style/keyboard_item_char"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            style="@style/keyboard_item_char"
-            android:textColor="@color/colorOrange"
             android:layout_margin="@dimen/keyboard_magrin_size"
+            android:textColor="@color/colorOrange"
             app:layout_constraintBottom_toTopOf="@+id/kb_solve"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -385,5 +367,19 @@
             app:layout_constraintEnd_toStartOf="@+id/kb_point"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/kb_1" />
-    </com.tapi.mathcalculator.ui.keyboard.EquationKeyBoardView>
+
+        <ProgressBar
+            android:id="@+id/kb_loading"
+            style="@style/keyboard_item_char"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/keyboard_magrin_size"
+            android:background="@drawable/key_equals_sign_selector"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_back"
+            app:layout_constraintTop_toBottomOf="@+id/kb_plus" />
+    </com.tapi.mathcalculator.ui.equation.EquationKeyBoardView>
 </LinearLayout>

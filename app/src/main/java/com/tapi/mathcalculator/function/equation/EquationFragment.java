@@ -1,9 +1,9 @@
 package com.tapi.mathcalculator.function.equation;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -12,9 +12,8 @@ import android.view.ViewGroup;
 
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.ui.equation.EquationResultView;
-import com.tapi.mathcalculator.ui.keyboard.EquationKeyBoardView;
+import com.tapi.mathcalculator.ui.equation.EquationKeyBoardView;
 import com.tapi.mathcalculator.ui.keyboard.IKeyBoard;
-import com.tapi.mathcalculator.ui.keyboard.CalculatorKeyBoardView;
 import com.tapi.mathcalculator.utils.UtilsString;
 
 public class EquationFragment extends Fragment {
@@ -47,20 +46,31 @@ public class EquationFragment extends Fragment {
                         mEquationKeyboardView.replaceKeyAbOrBa(IKeyBoard.Key.ba);
                         break;
                     case solve:
-                        String s = mEquationResultView.equationResult();
-                        if (!TextUtils.isEmpty(s)){
-                            EquationResultDialog equationResultDialog = new EquationResultDialog();
-                            Bundle bundle = new Bundle();
-                            if (!TextUtils.isEmpty(mEquationResultView.getEdtResult1().getText())){
-                                bundle.putString(UtilsString.EQUATION_RESULT1_TXT,mEquationResultView.getEdtResult1().getText().toString());
+                        mEquationKeyboardView.showLoadingSolve();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                String s = mEquationResultView.equationResult();
+                                if (!TextUtils.isEmpty(s)){
+                                    EquationResultDialog equationResultDialog = new EquationResultDialog();
+                                    Bundle bundle = new Bundle();
+                                    if (!TextUtils.isEmpty(mEquationResultView.getEdtResult1().getText())){
+                                        bundle.putString(UtilsString.EQUATION_RESULT1_TXT,mEquationResultView.getEdtResult1().getText().toString());
+                                    }
+                                    if (!TextUtils.isEmpty(mEquationResultView.getEdtResult2().getText())){
+                                        bundle.putString(UtilsString.EQUATION_RESULT2_TXT,mEquationResultView.getEdtResult2().getText().toString());
+                                    }
+                                    if (TextUtils.isEmpty(mEquationResultView.getEdtResult1().getText()) && TextUtils.isEmpty(mEquationResultView.getEdtResult2().getText())){
+                                        bundle.putString(UtilsString.EQUATION_RESULT1_TXT,getString(R.string.equation_string_default));
+                                    }
+                                    equationResultDialog.setArguments(bundle);
+                                    if (getActivity() != null){
+                                        mEquationKeyboardView.hideLoadingSolve();
+                                        equationResultDialog.show(getActivity().getSupportFragmentManager(), UtilsString.TAG_RESULT_EQUATION_DIALOG);
+                                    }
+                                }
                             }
-                            if (!TextUtils.isEmpty(mEquationResultView.getEdtResult2().getText())){
-                                bundle.putString(UtilsString.EQUATION_RESULT2_TXT,mEquationResultView.getEdtResult2().getText().toString());
-                            }
-                            equationResultDialog.setArguments(bundle);
-                            if (getActivity() != null)
-                            equationResultDialog.show(getActivity().getSupportFragmentManager(), UtilsString.TAG_RESULT_EQUATION_DIALOG);
-                        }
+                        },500);
                         break;
                     default:
                         mEquationResultView.addKey(key);

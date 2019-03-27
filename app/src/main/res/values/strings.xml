@@ -26,4 +26,10 @@
     <string name="square_root_of_2">√</string>
     <string name="such_as_9x_18">Such as 9x=18</string>
     <string name="such_as_2y_16">Such as 2y=16</string>
+    <string name="equation_string_default">9x=18</string>
+    <string name="cm">cm</string>
+    <string name="ft_in">ft+in</string>
+    <string name="kg">kg</string>
+    <string name="lb">lb</string>
+    <string name="st_lb">st+lb</string>
 </resources>

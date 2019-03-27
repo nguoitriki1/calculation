@@ -3,6 +3,7 @@ package com.tapi.mathcalculator.function.history;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,6 +33,7 @@ public class HistoryFragment extends Fragment implements View.OnClickListener, D
     private OperationDb operationDb;
     private AdapterHistoryRv adapterHistoryRv;
     private boolean noClosedScreen;
+    private ConstraintLayout mLayoutNohistory;
 
     @Nullable
     @Override
@@ -64,6 +66,9 @@ public class HistoryFragment extends Fragment implements View.OnClickListener, D
         if (historyModelsListData.size()>0){
             linearLayoutManager.scrollToPosition(historyModelsListData.size()-1);
             noClosedScreen = true;
+            mLayoutNohistory.setVisibility(View.INVISIBLE);
+        }else {
+            mLayoutNohistory.setVisibility(View.VISIBLE);
         }
         mRvHistory.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -92,6 +97,7 @@ public class HistoryFragment extends Fragment implements View.OnClickListener, D
         mBtnDeleteAllHistory = view.findViewById(R.id.history_deleteall_btn);
         mBtnScrollUpHistory = view.findViewById(R.id.history_scrollup_btn);
         mRvHistory = view.findViewById(R.id.history_recycler_view);
+        mLayoutNohistory = view.findViewById(R.id.history_layout_nohistory);
     }
 
     @Override

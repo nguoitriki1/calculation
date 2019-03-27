@@ -15,38 +15,26 @@
         android:paddingBottom="16dp"
         android:textColor="@color/colorOrange"
         android:textSize="@dimen/size_text_result"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintBottom_toTopOf="@+id/calculation_in_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="0dp"
+    <EditText
+        android:id="@+id/calculation_in_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
+        android:layout_gravity="right"
+        android:background="@android:color/transparent"
+        android:inputType="textNoSuggestions"
+        android:maxLines="1"
         android:padding="16dp"
-        android:background="@android:color/white"
-        android:fillViewport="false"
-        android:overScrollMode="never"
-        android:scrollbars="none"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/calculation_in_text_size"
+        android:gravity="right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <EditText
-            android:id="@+id/calculation_in_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@android:color/transparent"
-            android:inputType="textNoSuggestions"
-            android:maxLines="1"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/calculation_in_text_size" />
-    </HorizontalScrollView>
+        app:layout_constraintStart_toStartOf="parent" />
 </com.tapi.mathcalculator.ui.calculator.CalculationResultView>

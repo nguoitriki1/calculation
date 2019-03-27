@@ -2,9 +2,646 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_parent_bmi_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".activities.BmiActivity">
+    android:clickable="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.tapi.mathcalculator.ui.bmi.BmiKeyboardView
+        android:id="@+id/bmi_keyboard_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmi_result_view">
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num4"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_num1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_num5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num7" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num5"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_num2"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_num6"
+            app:layout_constraintStart_toEndOf="@+id/kb_num4"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num8" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num7"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_num4"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_num8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num8"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_num5"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_num9"
+            app:layout_constraintStart_toEndOf="@+id/kb_num7"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_back"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_point"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num3" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num3"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_back"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_num2"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num6" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num6"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_num3"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_num5"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num9" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num9"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_num6"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/kb_num8"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num0"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_point"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num1" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num1"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_num0"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_num2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num4" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_point"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_back"
+            app:layout_constraintStart_toEndOf="@+id/kb_num0"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num2" />
+
+        <com.tapi.mathcalculator.ui.keyboard.KeyItemView
+            android:id="@+id/kb_num2"
+            style="@style/keyboard_item_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/kb_point"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/kb_num3"
+            app:layout_constraintStart_toEndOf="@+id/kb_num1"
+            app:layout_constraintTop_toBottomOf="@+id/kb_num5" />
+
+    </com.tapi.mathcalculator.ui.bmi.BmiKeyboardView>
+
+    <com.tapi.mathcalculator.ui.bmi.BmiResultView
+        android:id="@+id/bmi_result_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+        <EditText
+            android:id="@+id/bmi_weight_comma2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:gravity="top"
+            android:inputType="textPersonName"
+            android:text="'"
+            android:textColor="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_spinner_weight"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_edt_weight_lbst"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_spinner_height" />
+
+        <TextView
+            android:id="@+id/bmi_weight_comma1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="top"
+            android:text='"'
+            android:textColor="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_spinner_weight"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_spinner_weight"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_spinner_height" />
+
+        <TextView
+            android:id="@+id/bmi_height_comma1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="top"
+            android:text='"'
+            android:textColor="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_edt_height_in"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_spinner_height"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/bmi_height_comma2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:gravity="top"
+            android:inputType="textPersonName"
+            android:text="'"
+            android:textColor="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_edt_height_in"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_edt_height_in"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/bmi_edt_height_in"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/equation_shape_edt"
+            android:ems="4"
+            android:gravity="right|bottom"
+            android:hint="in"
+            android:inputType="textPersonName"
+            android:paddingBottom="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_spinner_height"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_height_comma1"
+            app:layout_constraintStart_toEndOf="@+id/bmi_edt_height_ft"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/bmi_edt_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/equation_shape_edt"
+            android:gravity="right|center_vertical"
+            android:hint="Height"
+            android:inputType="textPersonName"
+            android:paddingBottom="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_spinner_height"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_spinner_height"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/bmi_edt_height_ft"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/equation_shape_edt"
+            android:gravity="right|center_vertical"
+            android:hint="ft"
+            android:inputType="textPersonName"
+            android:paddingBottom="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_edt_height_in"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></EditText>
+
+        <EditText
+            android:id="@+id/bmi_edt_weight_lbst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/equation_shape_edt"
+            android:ems="4"
+            android:gravity="right|bottom"
+            android:hint="lb"
+            android:inputType="textPersonName"
+            android:paddingBottom="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_spinner_weight"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_weight_comma1"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_edt_height_in" />
+
+        <EditText
+            android:id="@+id/bmi_edt_weight_st"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/equation_shape_edt"
+            android:gravity="right|center_vertical"
+            android:hint="st"
+            android:inputType="textPersonName"
+            android:paddingBottom="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_edt_weight_lbst"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_edt_height_ft" />
+
+        <EditText
+            android:id="@+id/bmi_edt_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/equation_shape_edt"
+            android:gravity="right|center_vertical"
+            android:hint="Weight"
+            android:inputType="textPersonName"
+            android:paddingBottom="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_spinner_weight"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_spinner_weight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_spinner_height" />
+
+        <EditText
+            android:id="@+id/bmi_edt_weight_lb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/equation_shape_edt"
+            android:gravity="right|center_vertical"
+            android:hint="lb"
+            android:inputType="textPersonName"
+            android:paddingBottom="8dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorOrange"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/keyboard_item_text_size"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_spinner_weight"
+            app:layout_constraintEnd_toStartOf="@+id/bmi_spinner_weight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_spinner_height" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/bmi_spinner_height"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/spiner_shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/bmi_spiner_height_txt_spiner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="cm"
+                android:textColor="@color/colorOrange"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/keyboard_item_text_size_min"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="16dp"
+            android:text="0"
+            android:textColor="@color/colorOrange"
+            android:textSize="@dimen/keyboard_item_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_spinner_weight" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:textColor="@color/colorOrange"
+            android:textSize="@dimen/keyboard_item_text_size_min"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView21"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/bmi_spinner_weight"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/spiner_shape"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_edt_weight_lbst"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/bmi_spiner_weight_txt_spiner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="kg"
+                android:textColor="@color/colorOrange"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/keyboard_item_text_size_min"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView22"
+            app:layout_constraintStart_toEndOf="@+id/textView22"
+            app:srcCompat="@drawable/information_icon" />
+
+    </com.tapi.mathcalculator.ui.bmi.BmiResultView>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="@color/colorlightGray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/bmi_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="BMI"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/keyboard_item_text_size_min"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bmi_back_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/question_icon" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/bmi_layout_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/bmi_spiner_dialog_layout_weight"
+        android:layout_width="55dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/spiner_dialog_shape"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bmi_keyboard_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bmi_keyboard_view">
+
+        <TextView
+            android:id="@+id/bmi_spiner_weight_txt_kg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:text="kg"
+            app:layout_constraintBottom_toTopOf="@+id/bmi_spiner_weight_txt_lb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bmi_spiner_weight_txt_lb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:text="lb"
+            app:layout_constraintBottom_toTopOf="@+id/bmi_spiner_weight_txt_stlb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_spiner_weight_txt_kg" />
+
+        <TextView
+            android:id="@+id/bmi_spiner_weight_txt_stlb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:text="st+lb"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_spiner_weight_txt_lb" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/bmi_spiner_dialog_layout_height"
+        android:layout_width="62dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/spiner_dialog_shape"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bmi_keyboard_view"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/bmi_spiner_height_txt_cm"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:text="cm"
+            app:layout_constraintBottom_toTopOf="@+id/bmi_spiner_height_txt_ftin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bmi_spiner_height_txt_ftin"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:text="ft+in"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_spiner_height_txt_cm" />
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>

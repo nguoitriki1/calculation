@@ -1,14 +1,19 @@
-package com.tapi.mathcalculator.ui.keyboard;
+package com.tapi.mathcalculator.ui.equation;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.IdRes;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.tapi.mathcalculator.R;
+import com.tapi.mathcalculator.ui.keyboard.IKeyBoard;
+import com.tapi.mathcalculator.ui.keyboard.IKeyItem;
 
 public class EquationKeyBoardView extends ConstraintLayout implements View.OnClickListener, View.OnLongClickListener {
+    private ProgressBar progressBarSolve;
     protected IKeyBoard.OnKeyboardOnClickListener mOnKeyboardOnClickListener;
 
     public EquationKeyBoardView(Context context) {
@@ -26,6 +31,8 @@ public class EquationKeyBoardView extends ConstraintLayout implements View.OnCli
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        progressBarSolve = findViewById(R.id.kb_loading);
+        progressBarSolve.getIndeterminateDrawable().setColorFilter(Color.WHITE, android.graphics.PorterDuff.Mode.MULTIPLY);
         addKey(R.id.kb_x, IKeyBoard.Key.x);
         addKey(R.id.kb_y, IKeyBoard.Key.y);
         addKey(R.id.kb_ab, IKeyBoard.Key.ab);
@@ -129,5 +136,11 @@ public class EquationKeyBoardView extends ConstraintLayout implements View.OnCli
     public boolean checkAbOrBa(){
         IKeyItem keyItem = (IKeyItem) findViewById(R.id.kb_ab);
         return keyItem.getKey() == IKeyBoard.Key.ab;
+    }
+    public void showLoadingSolve(){
+        progressBarSolve.setVisibility(VISIBLE);
+    }
+    public void hideLoadingSolve(){
+        progressBarSolve.setVisibility(INVISIBLE);
     }
 }

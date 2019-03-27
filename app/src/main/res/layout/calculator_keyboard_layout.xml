@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.tapi.mathcalculator.ui.keyboard.CalculatorKeyBoardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.tapi.mathcalculator.ui.calculator.CalculatorKeyBoardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/keyboard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -508,4 +508,4 @@
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>
-</com.tapi.mathcalculator.ui.keyboard.CalculatorKeyBoardView>
+</com.tapi.mathcalculator.ui.calculator.CalculatorKeyBoardView>
