@@ -20,4 +20,24 @@ public class UtilsString {
     public static final String TAG_RESULT_EQUATION_DIALOG = "EquationResultDialog";
     public static final String EQUATION_RESULT1_TXT = "EquationResultTxt1";
     public static final String EQUATION_RESULT2_TXT = "EquationResultTxt2";
+    public static final String TITLE_FRAGMENT_CONVENT = "ConventFragment";
+    public static final int KEY_LENGHT_MM = 11;
+    public static final int KEY_LENGHT_CM = 12;
+    public static final int KEY_LENGHT_DM = 13;
+    public static final int KEY_LENGHT_M = 14;
+    public static final int KEY_LENGHT_KM = 15;
+    public static final int KEY_LENGHT_IN = 16;
+    public static final int KEY_LENGHT_FT = 17;
+    public static final int KEY_LENGHT_YD = 18;
+    public static final int KEY_LENGHT_MILES = 19;
+    public static final int KEY_LENGHT_NAUTICAL_MILE = 20;
+    public static final int KEY_WEIGHT_MG = 21;
+    public static final int KEY_WEIGHT_G = 22;
+    public static final int KEY_WEIGHT_KG = 23;
+    public static final int KEY_WEIGHT_TON = 24;
+    public static final int KEY_WEIGHT_GR = 25;
+    public static final int KEY_WEIGHT_OZ = 26;
+    public static final int KEY_WEIGHT_LB = 27;
+    public static final int KEY_WEIGHT_OZT = 28;
+    public static final int KEY_WEIGHT_CT = 29;
 }

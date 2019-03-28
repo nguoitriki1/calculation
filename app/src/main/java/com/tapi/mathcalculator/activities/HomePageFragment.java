@@ -22,6 +22,7 @@ import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.adapter.ViewPagerAdapter;
 import com.tapi.mathcalculator.function.bmi.BmiActivity;
 import com.tapi.mathcalculator.function.calculator.CalculatorFragment;
+import com.tapi.mathcalculator.function.convent.ConventFragment;
 import com.tapi.mathcalculator.function.equation.EquationTutorialDialog;
 import com.tapi.mathcalculator.function.equation.EquationFragment;
 import com.tapi.mathcalculator.function.history.HistoryFragment;
@@ -67,6 +68,7 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
         adapter.addFrag(new CalculatorFragment(), UtilsString.TITLE_FRAGMENT_CALCULATOR);
         adapter.addFrag(new EquationFragment(), UtilsString.TITLE_FRAGMENT_EQUATION);
         adapter.addFrag(new PhotoFragment(), UtilsString.TITLE_FRAGMENT_PHOTO);
+        adapter.addFrag(new ConventFragment(), UtilsString.TITLE_FRAGMENT_CONVENT);
         mViewPager.setAdapter(adapter);
         mViewPager.setCurrentItem(0);
         mViewPager.addOnPageChangeListener(this);
@@ -121,6 +123,7 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
                         hideDrawerNav();
                         break;
                     case R.id.layout_item_privacy_policy:
+                        mViewPager.setCurrentItem(3);
                         Toast.makeText(getActivity(), "privacy policy", Toast.LENGTH_SHORT).show();
                         hideDrawerNav();
                         break;
