@@ -162,8 +162,6 @@ public class BmiResultView extends ConstraintLayout implements View.OnTouchListe
         try {
             double height = culatorHeight();
             double weight = culatorWeight();
-            Log.d("height", "height: " + height);
-            Log.d("height", "weight: " + weight);
             if (height != 0 && weight != 0) {
                 double totalResult = weight / (height * height) * 10000;
                 if (totalResult > 0) {

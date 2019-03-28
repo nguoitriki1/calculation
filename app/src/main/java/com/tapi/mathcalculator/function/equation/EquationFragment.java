@@ -95,4 +95,8 @@ public class EquationFragment extends Fragment {
             }
         });
     }
+
+    public void requestForcusEditText() {
+        mEquationResultView.requestForcusEdtPrevious();
+    }
 }

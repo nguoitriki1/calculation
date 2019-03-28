@@ -20,7 +20,12 @@
             android:id="@+id/equation_edt_result_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="0dp"
             android:background="@drawable/equation_shape_edt"
             android:hint="@string/such_as_9x_18"
             android:inputType="number"
@@ -33,12 +38,18 @@
             app:layout_constraintBottom_toTopOf="@+id/equation_edt_result_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket" />
+            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket"
+            app:layout_constraintTop_toTopOf="@+id/equation_img_bracket" />
 
         <EditText
             android:id="@+id/equation_edt_result_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/equation_shape_edt"
             android:hint="@string/such_as_2y_16"
@@ -51,21 +62,20 @@
             android:textColorHint="@color/colorPink"
             android:textSize="@dimen/keyboard_item_text_size_medium"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/equation_img_bracket"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket" />
+            app:layout_constraintStart_toEndOf="@+id/equation_img_bracket"
+            app:layout_constraintTop_toBottomOf="@+id/equation_edt_result_1" />
 
         <ImageView
             android:id="@+id/equation_img_bracket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginBottom="0dp"
-            android:paddingRight="16dp"
-            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ico_bracket" />
     </com.tapi.mathcalculator.ui.equation.EquationResultView>
 

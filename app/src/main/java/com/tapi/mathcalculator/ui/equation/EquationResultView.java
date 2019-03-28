@@ -280,7 +280,7 @@ public class EquationResultView extends ConstraintLayout {
         if (edtCurentForcus.length() > 0) {
             edtCurentForcus.setText("");
         } else {
-            imgBracket.setVisibility(GONE);
+            imgBracket.setVisibility(INVISIBLE);
             edtResult2.setVisibility(INVISIBLE);
             edtResult1.requestFocus();
             edtCurentForcus = edtResult1;
@@ -295,7 +295,7 @@ public class EquationResultView extends ConstraintLayout {
                 edtCurentForcus.setSelection(selectionStart - 1);
             }
         } else {
-            imgBracket.setVisibility(GONE);
+            imgBracket.setVisibility(INVISIBLE);
             edtResult2.setVisibility(INVISIBLE);
             edtResult1.requestFocus();
             edtCurentForcus = edtResult1;
@@ -306,5 +306,11 @@ public class EquationResultView extends ConstraintLayout {
         String resultEquation = "null";
         //calculator here
         return resultEquation;
+    }
+
+    public void requestForcusEdtPrevious() {
+        if (edtCurentForcus != null){
+            edtCurentForcus.requestFocus();
+        }
     }
 }

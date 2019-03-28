@@ -150,6 +150,8 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
         if (!TextUtils.isEmpty(adapter.getPageTitle(i))) {
             homePageToolbarView.setmTitlePage(String.valueOf(adapter.getPageTitle(i)));
             if (adapter.getPageTitle(i).equals(UtilsString.TITLE_FRAGMENT_EQUATION)){
+                EquationFragment equationFragment = (EquationFragment) adapter.getItem(i);
+                equationFragment.requestForcusEditText();
                 if (!isFirtsLauncherEquation) {
                     showDialogEquationTutorial();
                     PreferenceHelper.get().putBoolean(PreferenceHelper.IS_FIRTS_LAUNCHER_EQUATION, true);

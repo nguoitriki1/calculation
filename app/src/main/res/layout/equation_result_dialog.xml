@@ -54,28 +54,13 @@
             app:layout_constraintStart_toEndOf="@+id/equation_dialog_result_bracket_img" />
     </android.support.constraint.ConstraintLayout>
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/equation_dialog_result_layout_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:background="@android:color/white"
         android:visibility="visible">
-
-        <ImageView
-            android:id="@+id/equation_dialog_result_closed_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/solve_oval_black_icon"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/solve_keyboard_icon" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/equation_dialog_result_rv"
@@ -114,6 +99,21 @@
             android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/equation_dialog_result_closed_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/solve_oval_black_icon"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/solve_keyboard_icon" />
 
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>
