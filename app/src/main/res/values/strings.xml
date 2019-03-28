@@ -32,4 +32,8 @@
     <string name="kg">kg</string>
     <string name="lb">lb</string>
     <string name="st_lb">st+lb</string>
+    <string name="underweight">Underweight</string>
+    <string name="healthy">Healthy</string>
+    <string name="overweight">Overweight</string>
+    <string name="obese">Obese</string>
 </resources>

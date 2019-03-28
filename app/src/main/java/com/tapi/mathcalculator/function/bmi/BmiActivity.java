@@ -24,7 +24,7 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
     private BmiKeyboardView mBmiKeyboardView;
     private BmiResultView mBmiResultView;
     private ImageView mBtnBack;
-    private TextView mSpinerHeightTxtCm, mSpinerHeightTxtFtin, mSpinerWeightTxtkg, mSpinerWeightTxtlb, mSpinerHeightTxtlbst,mTxtSpinerHeight,mTxtSpinerWeight;
+    private TextView mSpinerHeightTxtCm, mSpinerHeightTxtFtin, mSpinerWeightTxtkg, mSpinerWeightTxtlb, mSpinerHeightTxtlbst, mTxtSpinerHeight, mTxtSpinerWeight;
     private ConstraintLayout mSpinerHeight, mSpinerWeight, mSpinerHeightDialog, mSpinerWeightDialog, mBmiLayoutParent;
 
     @Override
@@ -81,8 +81,10 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
             public void onKeyEventClick(View view, IKeyBoard.Event event, IKeyBoard.Key key) {
                 switch (key) {
                     case point:
+                        mBmiResultView.insertPoint(key);
                         break;
                     case back:
+                        mBmiResultView.removeKey();
                         break;
                     default:
                         mBmiResultView.addKey(key);
@@ -92,7 +94,17 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
 
             @Override
             public void onKeyEventLongClick(View view, IKeyBoard.Event event, IKeyBoard.Key key) {
-
+                switch (key) {
+                    case point:
+                        mBmiResultView.insertPoint(key);
+                        break;
+                    case back:
+                        mBmiResultView.removeAllKey();
+                        break;
+                    default:
+                        mBmiResultView.addKey(key);
+                        break;
+                }
             }
         });
     }
@@ -159,19 +171,19 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bmi_spiner_height_txt_cm:
-                spinerTxtClick(mTxtSpinerHeight,getString(R.string.cm),UtilsString.STYLE_HEIGHT_CM);
+                spinerTxtClick(mTxtSpinerHeight, getString(R.string.cm), UtilsString.STYLE_HEIGHT_CM);
                 break;
             case R.id.bmi_spiner_height_txt_ftin:
-                spinerTxtClick(mTxtSpinerHeight,getString(R.string.ft_in),UtilsString.STYLE_HEIGHT_FT);
+                spinerTxtClick(mTxtSpinerHeight, getString(R.string.ft_in), UtilsString.STYLE_HEIGHT_FT);
                 break;
             case R.id.bmi_spiner_weight_txt_kg:
-                spinerTxtClick(mTxtSpinerWeight,getString(R.string.kg),UtilsString.STYLE_WEIGHT_KG);
+                spinerTxtClick(mTxtSpinerWeight, getString(R.string.kg), UtilsString.STYLE_WEIGHT_KG);
                 break;
             case R.id.bmi_spiner_weight_txt_lb:
-                spinerTxtClick(mTxtSpinerWeight,getString(R.string.lb),UtilsString.STYLE_WEIGHT_LB);
+                spinerTxtClick(mTxtSpinerWeight, getString(R.string.lb), UtilsString.STYLE_WEIGHT_LB);
                 break;
             case R.id.bmi_spiner_weight_txt_stlb:
-                spinerTxtClick(mTxtSpinerWeight,getString(R.string.st_lb),UtilsString.STYLE_WEIGHT_LBST);
+                spinerTxtClick(mTxtSpinerWeight, getString(R.string.st_lb), UtilsString.STYLE_WEIGHT_LBST);
                 break;
             case R.id.bmi_back_btn:
                 finish();
@@ -200,7 +212,8 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
     public boolean checkHideViewDropDownSpiner() {
         return mSpinerHeightDialog.getVisibility() == View.VISIBLE || mSpinerWeightDialog.getVisibility() == View.VISIBLE;
     }
-    public void spinerTxtClick(TextView textView,String text ,int style){
+
+    public void spinerTxtClick(TextView textView, String text, int style) {
         hideViewDropDownSpiner();
         textView.setText(text);
         mBmiResultView.showEditTextToStyle(style);

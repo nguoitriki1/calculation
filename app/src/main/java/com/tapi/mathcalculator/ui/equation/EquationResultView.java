@@ -290,8 +290,10 @@ public class EquationResultView extends ConstraintLayout {
     public void removeOneKeyClick() {
         if (edtCurentForcus.length() > 0) {
             int selectionStart = edtCurentForcus.getSelectionStart();
-            edtCurentForcus.setText((Spanned) edtCurentForcus.getText().delete(selectionStart - 1, selectionStart));
-            edtCurentForcus.setSelection(selectionStart - 1);
+            if (selectionStart > 0){
+                edtCurentForcus.setText((Spanned) edtCurentForcus.getText().delete(selectionStart - 1, selectionStart));
+                edtCurentForcus.setSelection(selectionStart - 1);
+            }
         } else {
             imgBracket.setVisibility(GONE);
             edtResult2.setVisibility(INVISIBLE);
