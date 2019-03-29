@@ -102,7 +102,7 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
                         mBmiResultView.removeAllKey();
                         break;
                     default:
-                        mBmiResultView.addKey(key);
+                        view.performClick();
                         break;
                 }
             }
@@ -207,10 +207,6 @@ public class BmiActivity extends AppCompatActivity implements View.OnClickListen
                         .setListener(null);
                 break;
         }
-    }
-
-    public boolean checkHideViewDropDownSpiner() {
-        return mSpinerHeightDialog.getVisibility() == View.VISIBLE || mSpinerWeightDialog.getVisibility() == View.VISIBLE;
     }
 
     public void spinerTxtClick(TextView textView, String text, int style) {

@@ -1,6 +1,5 @@
-package com.tapi.mathcalculator.activities;
+package com.tapi.mathcalculator.function.homepage;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,7 +21,6 @@ import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.adapter.ViewPagerAdapter;
 import com.tapi.mathcalculator.function.bmi.BmiActivity;
 import com.tapi.mathcalculator.function.calculator.CalculatorFragment;
-import com.tapi.mathcalculator.function.convent.ConventFragment;
 import com.tapi.mathcalculator.function.equation.EquationTutorialDialog;
 import com.tapi.mathcalculator.function.equation.EquationFragment;
 import com.tapi.mathcalculator.function.history.HistoryFragment;
@@ -34,61 +32,31 @@ import com.tapi.mathcalculator.utils.UtilsString;
 
 
 public class HomePageFragment extends Fragment implements ViewPager.OnPageChangeListener {
-    private HomePageViewModel viewModel;
     private NavigationMenuView navigationMenuView;
     private HomePageToolbarView homePageToolbarView;
     private ViewPagerAdapter adapter;
     private DrawerLayout mDrawer;
     private ViewPager mViewPager;
-    private boolean isFirtsLauncherEquation,isFirtsLauncherCalculator;
+    private boolean isFirtsLauncherEquation, isFirtsLauncherCalculator;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home_page_fragment,container,false);
+        return inflater.inflate(R.layout.home_page_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        viewModel = ViewModelProviders.of(this).get(HomePageViewModel.class);
-        checkFistLanch();
         initView(view);
         setClickView();
+        drawMenuNavigationClick();
     }
 
-    private void checkFistLanch() {
-    }
-
-    private void initView(View view) {
-        mViewPager = view.findViewById(R.id.view_pager_main);
-        navigationMenuView = view.findViewById(R.id.nav_menu_view);
-        homePageToolbarView = view.findViewById(R.id.home_page_toolbar);
-        mDrawer = (DrawerLayout) view.findViewById(R.id.drawer_layout);
-        adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFrag(new CalculatorFragment(), UtilsString.TITLE_FRAGMENT_CALCULATOR);
-        adapter.addFrag(new EquationFragment(), UtilsString.TITLE_FRAGMENT_EQUATION);
-        adapter.addFrag(new PhotoFragment(), UtilsString.TITLE_FRAGMENT_PHOTO);
-        adapter.addFrag(new ConventFragment(), UtilsString.TITLE_FRAGMENT_CONVENT);
-        mViewPager.setAdapter(adapter);
-        mViewPager.setCurrentItem(0);
-        mViewPager.addOnPageChangeListener(this);
-        homePageToolbarView.initDot(mViewPager);
-    }
-
-    private void setClickView() {
-        homePageToolbarView.setOnClickBtnShowMenuNavListner(new HomePageToolbarView.OnClickBtnShowMenuNavListner() {
-            @Override
-            public void onClickBtnShowMenuNav() {
-                mDrawer.openDrawer(Gravity.START);
-            }
-        });
+    private void drawMenuNavigationClick() {
         navigationMenuView.setOnNavMenuclickListner(new NavigationMenuView.OnNavMenuclickListner() {
             @Override
             public void onMenuClickListner(View view, int id) {
                 switch (id) {
-                    case R.id.img_menu:
-                        mDrawer.openDrawer(GravityCompat.START);
-                        break;
                     case R.id.layout_item_calculation:
                         mViewPager.setCurrentItem(0);
                         hideDrawerNav();
@@ -119,12 +87,9 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
                         hideDrawerNav();
                         break;
                     case R.id.layout_item_rate_us:
-                        Toast.makeText(getActivity(), "rate us", Toast.LENGTH_SHORT).show();
                         hideDrawerNav();
                         break;
                     case R.id.layout_item_privacy_policy:
-                        mViewPager.setCurrentItem(3);
-                        Toast.makeText(getActivity(), "privacy policy", Toast.LENGTH_SHORT).show();
                         hideDrawerNav();
                         break;
                 }
@@ -132,14 +97,29 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
         });
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
-//            mDrawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
+    private void initView(View view) {
+        mViewPager = view.findViewById(R.id.view_pager_main);
+        navigationMenuView = view.findViewById(R.id.nav_menu_view);
+        homePageToolbarView = view.findViewById(R.id.home_page_toolbar);
+        mDrawer = (DrawerLayout) view.findViewById(R.id.drawer_layout);
+        adapter = new ViewPagerAdapter(getChildFragmentManager());
+        adapter.addFrag(new CalculatorFragment(), UtilsString.TITLE_FRAGMENT_CALCULATOR);
+        adapter.addFrag(new EquationFragment(), UtilsString.TITLE_FRAGMENT_EQUATION);
+        adapter.addFrag(new PhotoFragment(), UtilsString.TITLE_FRAGMENT_PHOTO);
+        mViewPager.setAdapter(adapter);
+        mViewPager.setCurrentItem(0);
+        mViewPager.addOnPageChangeListener(this);
+        homePageToolbarView.initDot(mViewPager);
+    }
+
+    private void setClickView() {
+        homePageToolbarView.setOnClickBtnShowMenuNavListner(new HomePageToolbarView.OnClickBtnShowMenuNavListner() {
+            @Override
+            public void onClickBtnShowMenuNav() {
+                mDrawer.openDrawer(Gravity.START);
+            }
+        });
+    }
 
     @Override
     public void onPageScrolled(int i, float v, int i1) {
@@ -152,14 +132,14 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
         isFirtsLauncherCalculator = PreferenceHelper.get().getBoolean(PreferenceHelper.IS_FIRTS_LAUNCHER_CALCULATOR, false);
         if (!TextUtils.isEmpty(adapter.getPageTitle(i))) {
             homePageToolbarView.setmTitlePage(String.valueOf(adapter.getPageTitle(i)));
-            if (adapter.getPageTitle(i).equals(UtilsString.TITLE_FRAGMENT_EQUATION)){
+            if (adapter.getPageTitle(i).equals(UtilsString.TITLE_FRAGMENT_EQUATION)) {
                 EquationFragment equationFragment = (EquationFragment) adapter.getItem(i);
                 equationFragment.requestForcusEditText();
                 if (!isFirtsLauncherEquation) {
                     showDialogEquationTutorial();
                     PreferenceHelper.get().putBoolean(PreferenceHelper.IS_FIRTS_LAUNCHER_EQUATION, true);
                 }
-            }else if (adapter.getPageTitle(i).equals(UtilsString.TITLE_FRAGMENT_CALCULATOR)){
+            } else if (adapter.getPageTitle(i).equals(UtilsString.TITLE_FRAGMENT_CALCULATOR)) {
                 if (!isFirtsLauncherCalculator) {
                     CalculatorFragment calculatorFragment = (CalculatorFragment) adapter.getItem(i);
                     calculatorFragment.showTutorial();
@@ -173,11 +153,12 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
         equationDialog.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
         equationDialog.show(getActivity().getSupportFragmentManager(), UtilsString.TAG_TUTORIAL_EQUATION_DIALOG);
     }
+
     private void showDialogHistory() {
         HistoryFragment historyFragment = new HistoryFragment();
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.window_in_animation,R.anim.window_out_animation, R.anim.window_in_animation,R.anim.window_out_animation);
-        fragmentTransaction.add(R.id.homepage_contaner_fragment, historyFragment,UtilsString.TAG_HISTORY_FRAGMENT);
+        fragmentTransaction.setCustomAnimations(R.anim.window_in_animation, R.anim.window_out_animation, R.anim.window_in_animation, R.anim.window_out_animation);
+        fragmentTransaction.add(R.id.homepage_contaner_fragment, historyFragment, UtilsString.TAG_HISTORY_FRAGMENT);
         fragmentTransaction.addToBackStack(UtilsString.TAG_HISTORY_FRAGMENT);
         fragmentTransaction.commit();
     }
@@ -191,7 +172,7 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
         if (mDrawer.isDrawerOpen(GravityCompat.START)) {
             mDrawer.closeDrawer(GravityCompat.START);
             return true;
-        }else {
+        } else {
             return false;
         }
     }

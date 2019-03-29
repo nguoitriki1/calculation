@@ -7,7 +7,7 @@
     android:background="@color/colorlightGray"
     android:fitsSystemWindows="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activities.HomePageFragment"
+    tools:context=".function.homepage.HomePageFragment"
     tools:showIn="@layout/home_page_content_main">
 
     <include

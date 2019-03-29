@@ -1,5 +1,6 @@
 package com.tapi.mathcalculator.ui.calculator;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.IdRes;
 import android.util.AttributeSet;
@@ -15,7 +16,6 @@ import com.tapi.mathcalculator.ui.keyboard.IKeyItem;
 public class CalculatorKeyBoardView extends ScrollView implements IKeyBoard {
     protected OnKeyboardOnClickListener mOnKeyboardOnClickListener;
     protected OnKeyboardScrollDownListener onKeyboardScrollDownListener;
-    private int mAllChildHeight;
 
     public CalculatorKeyBoardView(Context context) {
         super(context);

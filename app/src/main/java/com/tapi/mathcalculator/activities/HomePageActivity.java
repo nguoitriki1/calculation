@@ -7,6 +7,7 @@ import android.view.WindowManager;
 
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.dialog.ExitDialog;
+import com.tapi.mathcalculator.function.homepage.HomePageFragment;
 import com.tapi.mathcalculator.utils.UtilsString;
 
 public class HomePageActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     private void replaceFragmentHomePage() {
-        HomePageFragment homePageFragment = new HomePageFragment();
+        homePageFragment = new HomePageFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.homepage_contaner_fragment, homePageFragment, UtilsString.TAG_HOMEPAGE_FRAGMENT);
         fragmentTransaction.commit();

@@ -124,7 +124,6 @@ public class CalculationResultView extends ConstraintLayout {
         String outText = key.outText;
         switch (key) {
             case point:
-                // them so 0 khi them dau .
                 insertPoint(outText,selectionStart,selectionEnd);
                 break;
             case x_1:
@@ -518,8 +517,7 @@ public class CalculationResultView extends ConstraintLayout {
 
             }
         });
-
-// Start animation
+        // Start animation
         mOutText.startAnimation(slide_out);
     }
 }

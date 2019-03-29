@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.tapi.mathcalculator.R;
 
 public class EquationTutorialDialog extends DialogFragment {
-    private TextView mBtnIGotIt;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +28,7 @@ public class EquationTutorialDialog extends DialogFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        mBtnIGotIt = view.findViewById(R.id.equation_dialog_button_igetit);
+        TextView mBtnIGotIt = view.findViewById(R.id.equation_dialog_button_igetit);
         mBtnIGotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
