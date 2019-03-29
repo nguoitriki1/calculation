@@ -19,7 +19,13 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven {
+            url "http://159.65.102.237:8081/artifactory/vincent-library"
+            credentials {
+                username = "${artifactory_username}"
+                password = "${artifactory_password}"
+            }
+        }
     }
 }
 
