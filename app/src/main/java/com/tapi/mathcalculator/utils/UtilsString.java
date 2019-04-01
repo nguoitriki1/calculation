@@ -9,6 +9,9 @@ public class UtilsString {
     public static final int STYLE_WEIGHT_KG = 2;
     public static final int STYLE_WEIGHT_LB = 3;
     public static final int STYLE_WEIGHT_LBST = 4;
+    public static final int TYPE_WIFI = 1;
+    public static final int TYPE_MOBILE = 2;
+    public static final int TYPE_NOT_CONNECTED = 0;
     public static final String SHARE_PREFENT_NAME = "CalculatorShareprefent";
     public static final String TAG_TUTORIAL_EQUATION_DIALOG = "EquationTutorialDialog";
     public static final String TAG_HISTORY_FRAGMENT = "HistoryFragment";
@@ -20,7 +23,7 @@ public class UtilsString {
     public static final String TAG_RESULT_EQUATION_DIALOG = "EquationResultDialog";
     public static final String EQUATION_RESULT1_TXT = "EquationResultTxt1";
     public static final String EQUATION_RESULT2_TXT = "EquationResultTxt2";
-    public static final String TITLE_FRAGMENT_CONVENT = "ConventFragment";
+    public static final int MY_PERMISSIONS_REQUEST_CAMERA = 101;
     public static final int KEY_LENGHT_MM = 11;
     public static final int KEY_LENGHT_CM = 12;
     public static final int KEY_LENGHT_DM = 13;
@@ -40,4 +43,8 @@ public class UtilsString {
     public static final int KEY_WEIGHT_LB = 27;
     public static final int KEY_WEIGHT_OZT = 28;
     public static final int KEY_WEIGHT_CT = 29;
+    public static final int SETTING_APP_RESULT_CODE = 102;
+    public static final String PHOTO_RESULT_KEY = "ResultPhoto";
+    public static final String TAG_RESULT_PHOTO_DIALOG = "DialogPhoto";
+    public static final String ACTION_WIFI = "android.intent.action.CHANGE_WIFI_STATE";
 }

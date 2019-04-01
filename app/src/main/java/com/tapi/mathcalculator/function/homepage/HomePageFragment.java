@@ -1,6 +1,7 @@
 package com.tapi.mathcalculator.function.homepage;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,19 +16,19 @@ import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.tapi.mathcalculator.R;
 import com.tapi.mathcalculator.function.adapter.ViewPagerAdapter;
 import com.tapi.mathcalculator.function.bmi.BmiActivity;
 import com.tapi.mathcalculator.function.calculator.CalculatorFragment;
-import com.tapi.mathcalculator.function.equation.EquationTutorialDialog;
+import com.tapi.mathcalculator.function.dialog.EquationTutorialDialog;
 import com.tapi.mathcalculator.function.equation.EquationFragment;
 import com.tapi.mathcalculator.function.history.HistoryFragment;
 import com.tapi.mathcalculator.function.photo.PhotoFragment;
 import com.tapi.mathcalculator.helpler.PreferenceHelper;
 import com.tapi.mathcalculator.ui.nav.NavigationMenuView;
 import com.tapi.mathcalculator.ui.toolbar.HomePageToolbarView;
+import com.tapi.mathcalculator.utils.Utils;
 import com.tapi.mathcalculator.utils.UtilsString;
 
 
@@ -38,6 +39,7 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
     private DrawerLayout mDrawer;
     private ViewPager mViewPager;
     private boolean isFirtsLauncherEquation, isFirtsLauncherCalculator;
+    private boolean isStartCameraPhoto = true;
 
     @Nullable
     @Override
@@ -105,7 +107,16 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
         adapter = new ViewPagerAdapter(getChildFragmentManager());
         adapter.addFrag(new CalculatorFragment(), UtilsString.TITLE_FRAGMENT_CALCULATOR);
         adapter.addFrag(new EquationFragment(), UtilsString.TITLE_FRAGMENT_EQUATION);
-        adapter.addFrag(new PhotoFragment(), UtilsString.TITLE_FRAGMENT_PHOTO);
+        PhotoFragment photoFragment = new PhotoFragment();
+        photoFragment.setOnStartMathpixCameraView(new PhotoFragment.OnStartMathpixCameraView() {
+            @Override
+            public void onStartMathpixCameraView(Boolean isStart) {
+                if (isStart != null){
+                    isStartCameraPhoto = isStart;
+                }
+            }
+        });
+        adapter.addFrag(photoFragment, UtilsString.TITLE_FRAGMENT_PHOTO);
         mViewPager.setAdapter(adapter);
         mViewPager.setCurrentItem(0);
         mViewPager.addOnPageChangeListener(this);
@@ -144,6 +155,10 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
                     CalculatorFragment calculatorFragment = (CalculatorFragment) adapter.getItem(i);
                     calculatorFragment.showTutorial();
                 }
+            } else if (adapter.getPageTitle(i).equals(UtilsString.TITLE_FRAGMENT_PHOTO)) {
+                PhotoFragment photoFragment = (PhotoFragment) adapter.getItem(i);
+                photoFragment.setViewDefault(isStartCameraPhoto);
+                photoFragment.checkPermission();
             }
         }
     }
@@ -174,6 +189,30 @@ public class HomePageFragment extends Fragment implements ViewPager.OnPageChange
             return true;
         } else {
             return false;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == UtilsString.SETTING_APP_RESULT_CODE){
+            checkPermissionHideViewPhotoFragment();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            checkPermissionHideViewPhotoFragment();
+        }
+    }
+    private void checkPermissionHideViewPhotoFragment(){
+        try{
+            PhotoFragment photoFragment = (PhotoFragment) adapter.getItem(2);
+            photoFragment.hideViewPermission();
+        }catch (Exception e){
+
         }
     }
 }

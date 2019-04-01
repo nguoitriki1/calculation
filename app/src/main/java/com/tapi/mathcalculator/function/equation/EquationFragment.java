@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tapi.mathcalculator.R;
+import com.tapi.mathcalculator.function.dialog.EquationResultDialog;
 import com.tapi.mathcalculator.ui.equation.EquationResultView;
 import com.tapi.mathcalculator.ui.equation.EquationKeyBoardView;
 import com.tapi.mathcalculator.ui.keyboard.IKeyBoard;
@@ -97,6 +98,7 @@ public class EquationFragment extends Fragment {
     }
 
     public void requestForcusEditText() {
+        if (mEquationResultView != null)
         mEquationResultView.requestForcusEdtPrevious();
     }
 }

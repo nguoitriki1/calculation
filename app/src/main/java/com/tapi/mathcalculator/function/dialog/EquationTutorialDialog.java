@@ -1,4 +1,4 @@
-package com.tapi.mathcalculator.function.equation;
+package com.tapi.mathcalculator.function.dialog;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
